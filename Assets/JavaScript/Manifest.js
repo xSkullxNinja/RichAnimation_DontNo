@@ -42,6 +42,10 @@ function getManifest() {
 		{ 
 			src: "JavaScript/Controls/KeyCode.js"
 		},
+        //Collision
+        { 
+			src: "JavaScript/Collision/ndgmr.Collision.js"
+		},
 		// Text
 		{ 
 			src: "JavaScript/Text/Text.js"
