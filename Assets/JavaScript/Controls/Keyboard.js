@@ -20,15 +20,18 @@ function assignKeyDownFunction(keyCode, keyDownFunction) {
 function handleKeyPress(evt) {
 	if (keyFunctions !== undefined && keyFunctions !== null) {
 		for(var keyNum = 0; keyNum < keyFunctions.length; ++keyNum) {
-			if(keyFunctions[keyNum].value) {
-				for(var keyFuncNum = 0; keyFuncNum < keyFunctions[keyNum].press.length; ++keyFuncNum) {
-					keyFunctions[keyNum].press[keyFuncNum]();
+			if(keyFunctions[keyNum]) {
+				if(keyFunctions[keyNum].value) {
+					for(var keyFuncNum = 0; keyFuncNum < keyFunctions[keyNum].press.length; ++keyFuncNum) {
+						keyFunctions[keyNum].press[keyFuncNum]();
+					}
 				}
 			}
 		}
 	}
 }
 function assignKeyPressFunction(keyCode, keyPressFunction) {
+	console.log(keyFunctions);
 	if(keyFunctions[keyCode] === undefined || keyFunctions[keyCode] === null) {
 		keyFunctions[keyCode] = { value: false, down: [], up: [], press: [] };
 	}
