@@ -1,4 +1,5 @@
 var stateManager;
+var enemyManager;
 
 function initializeGame(evt) {
 	mouseInit();
@@ -14,4 +15,6 @@ function initializeGame(evt) {
 
 	stateManager = new StateManager();
 	stateManager.init(evt);
+    
+    enemyManager = new EnemyManager();
 }

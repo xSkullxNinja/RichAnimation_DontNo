@@ -20,9 +20,11 @@ function enterGamePlayState(evt) {
 	assignKeyUpFunction(keyCodes.KEYCODE_LEFT, stopLeft);
 	assignKeyUpFunction(keyCodes.LETTER_A, stopLeft);
 	xPos = yPos = 400;
+    enemyManager.loadLevel1();
 }
 function runGamePlayState(evt) {
 	runGamePlayScene(evt);
+    enemyManager.update();
 }
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();
