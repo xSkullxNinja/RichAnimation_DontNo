@@ -19,10 +19,13 @@ function enterGamePlayState(evt) {
 	assignKeyUpFunction(keyCodes.LETTER_D, stopRight);
 	assignKeyUpFunction(keyCodes.KEYCODE_LEFT, stopLeft);
 	assignKeyUpFunction(keyCodes.LETTER_A, stopLeft);
+    assignKeyUpFunction(keyCodes.ESCAPE, pause);
 	xPos = yPos = 400;
 }
 function runGamePlayState(evt) {
-	runGamePlayScene(evt);
+    if(!paused){
+	   runGamePlayScene(evt);
+    }
 }
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();
