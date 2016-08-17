@@ -8,5 +8,5 @@ function loopBeforeState(evt) {
 	runGameTimer(evt);
 }
 function loopAfterState(evt) {
-
+	handleKeyPress(evt);
 }
