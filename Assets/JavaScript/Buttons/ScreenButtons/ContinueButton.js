@@ -7,9 +7,12 @@ ContinueButton.prototype.constuctor = ContinueButton;
 
 ContinueButton.prototype.init = setupContinueButton;
 ContinueButton.prototype.click = clickedContinueButton;
+ContinueButton.prototype.doubleClick = null;
+ContinueButton.prototype.rightClick = null;
 ContinueButton.prototype.mouseOver = mouseOverContinueButton;
 ContinueButton.prototype.mouseOut = mouseOutContinueButton;
 ContinueButton.prototype.mouseDown = mouseDownContinueButton;
+ContinueButton.prototype.mouseUp = mouseUpContinueButton;
 
 function setupContinueButton(evt, xPos, yPos) {
 	stage.addChild(this.buttonSprite);
@@ -18,7 +21,6 @@ function setupContinueButton(evt, xPos, yPos) {
 	this.buttonSprite.gotoAndPlay("continueUp");
 }
 function clickedContinueButton(evt) {
-	this.gotoAndPlay("continueOver");
 	stateManager.change(evt, new GamePlayState());
 }
 function mouseOverContinueButton(evt) {
@@ -29,4 +31,7 @@ function mouseOutContinueButton(evt) {
 }
 function mouseDownContinueButton(evt) {
 	this.gotoAndPlay("continueDown");
+}
+function mouseUpContinueButton(evt) {
+	this.gotoAndPlay("continueOver");
 }

@@ -29,25 +29,51 @@ function addButtonEvents() {
 	addEveryButtonEvent(MENU_BUTTON);
 	addEveryButtonEvent(CONTINUE_BUTTON);
 	addEveryButtonEvent(PLAY_AGAIN_BUTTON);
-	addClick(MUTE_BUTTON)
+	addEveryButtonEvent(MUTE_BUTTON)
 }
 function addEveryButtonEvent(buttonValue) {
 	addClick(buttonValue);
+	addDoubleClick(buttonValue);
+	addRightClick(buttonValue);
 	addMouseOver(buttonValue);
 	addMouseOut(buttonValue);
 	addMouseDown(buttonValue);
+	addMouseUp(buttonValue);
 }
 function addClick(buttonValue) {
-	stage.addEventListener(buttonList[buttonValue].buttonSprite.on("click",		buttonList[buttonValue].click));
+	if(buttonList[buttonValue].click !== null) {
+		stage.addEventListener(buttonList[buttonValue].buttonSprite.on("click",			buttonList[buttonValue].click));
+	}
+}
+function addDoubleClick(buttonValue) {
+	if(buttonList[buttonValue].doubleClick !== null) {
+		stage.addEventListener(buttonList[buttonValue].buttonSprite.on("dblclick",		buttonList[buttonValue].doubleClick));
+	}
+}
+function addRightClick(buttonValue) {
+	if(buttonList[buttonValue].rightClick !== null) {
+		stage.addEventListener(buttonList[buttonValue].buttonSprite.on("contextmenu",	buttonList[buttonValue].rightClick));
+	}
 }
 function addMouseOver(buttonValue) {
-	stage.addEventListener(buttonList[buttonValue].buttonSprite.on("mouseover",	buttonList[buttonValue].mouseOver));
+	if(buttonList[buttonValue].mouseOver !== null) {
+		stage.addEventListener(buttonList[buttonValue].buttonSprite.on("mouseover",		buttonList[buttonValue].mouseOver));
+	}
 }
 function addMouseOut(buttonValue) {
-	stage.addEventListener(buttonList[buttonValue].buttonSprite.on("mouseout",	buttonList[buttonValue].mouseOut));
+	if(buttonList[buttonValue].mouseOut !== null) {
+		stage.addEventListener(buttonList[buttonValue].buttonSprite.on("mouseout",		buttonList[buttonValue].mouseOut));
+	}
 }
 function addMouseDown(buttonValue) {
-	stage.addEventListener(buttonList[buttonValue].buttonSprite.on("mousedown",	buttonList[buttonValue].mouseDown));
+	if(buttonList[buttonValue].mouseDown !== null) {
+		stage.addEventListener(buttonList[buttonValue].buttonSprite.on("mousedown",		buttonList[buttonValue].mouseDown));
+	}
+}
+function addMouseUp(buttonValue) {
+	if(buttonList[buttonValue].mouseUp !== null) {
+		stage.addEventListener(buttonList[buttonValue].buttonSprite.on("mouseup",		buttonList[buttonValue].mouseUp));
+	}
 }
 function getButton(buttonValue) {
 	var buttonNext = buttonList[buttonValue];
