@@ -46,6 +46,9 @@ function getManifest() {
         { 
 			src: "JavaScript/Collision/ndgmr.Collision.js"
 		},
+		{
+			src: "JavaScript/Collision/CollisionChecker.js"
+		},
 		// Text
 		{ 
 			src: "JavaScript/Text/Text.js"
@@ -178,6 +181,10 @@ function getManifest() {
 		{
 			src: "Images/LevelLoad.jpg",
 			id: "LevelLoad"
+		},
+		{
+			src: "Images/Wall.jpg",
+			id: "Wall"
 		}
 	];
 }

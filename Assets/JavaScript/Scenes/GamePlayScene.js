@@ -1,5 +1,6 @@
 var walker;
 var mouseText, scoreText;
+var wall;
 function enterGamePlayScene(evt) {
 	loadBackground("GamePlayBackground");
 	var menuButton = getButton(MENU_BUTTON);
@@ -12,7 +13,21 @@ function enterGamePlayScene(evt) {
 	muteButton.init(evt, 33, 534);
 	mouseText.init(315, 165, stage);
 	scoreText.init(365, 200, stage);
-
+	
+	//wall = new createjs.Bitmap(queue.getResult("Wall"));
+	//wall.x = 535;
+	//wall.y = 300;
+	//stage.addChild(wall);
+	
+	//newWall = new createjs.Bitmap(queue.getResult("Wall"));
+	//newWall.x = 490;
+	//newWall.y = 300;
+	//newWall.rotation = 90;
+	//stage.addChild(newWall);
+	
+	//collisionChecker.addCollider(wall);
+	//collisionChecker.addCollider(newWall);
+	
 	walker.init(400, 400, "standRight");
 	highScore = 0;
 }
@@ -62,6 +77,10 @@ function runGamePlayScene(evt) {
 	if(gameTimer >= 10) {
 		stateManager.change(evt, new GameOverState());
 	}
+	//collisionChecker.pushBackIfColliding(walker.sprite);
 	mouseText.change(getMousePosition());
 	scoreText.change(highScore);
 }
+
+//Width: [21.949] Height: [1.6]
+//Width: [1.95] Height: [43]
