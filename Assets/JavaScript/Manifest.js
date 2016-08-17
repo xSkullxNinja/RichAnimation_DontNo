@@ -32,6 +32,13 @@ function getManifest() {
 		{
 			src: "JavaScript/Sound/GameSounds/GameSound.js"
 		},
+		// Character
+		{
+			src: "JavaScript/Characters/Character.js"
+		},
+		{
+			src: "JavaScript/Characters/Player.js"
+		},
 		// Controls
 		{ 
 			src: "JavaScript/Controls/Mouse.js"
@@ -42,7 +49,7 @@ function getManifest() {
 		{ 
 			src: "JavaScript/Controls/KeyCode.js"
 		},
-        //Collision
+        // Collision
         { 
 			src: "JavaScript/Collision/ndgmr.Collision.js"
 		},
