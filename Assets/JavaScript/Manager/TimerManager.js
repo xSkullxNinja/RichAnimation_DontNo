@@ -1,4 +1,5 @@
-var frameCount, gameTimer, FPS;
+var frameCount, gameTimer, FPS, dt;
+var prevTime = 0;
 function timerInit() {
 	resetGameTimer();
 	
@@ -11,8 +12,10 @@ function resetGameTimer() {
 	frameCount = 0;
 }
 function runGameTimer(evt) {
+    prevTime = gameTimer;
     frameCount += 1;
     if(frameCount%(FPS/10) === 0) {
         gameTimer = frameCount/(FPS);   
     }
+    dt = gameTimer - prevTime;
 }
