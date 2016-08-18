@@ -1,4 +1,5 @@
-var highScore;
+var score;
+var numCollected;
 function initializeStage(evt) {
 	stage.removeAllChildren();
 }

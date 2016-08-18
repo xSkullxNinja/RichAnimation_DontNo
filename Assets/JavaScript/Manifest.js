@@ -39,6 +39,13 @@ function getManifest() {
 		{
 			src: "JavaScript/Sound/GameSounds/GameSound.js"
 		},
+		// Character
+		{
+			src: "JavaScript/Characters/Character.js"
+		},
+		{
+			src: "JavaScript/Characters/Player.js"
+		},
 		// Controls
 		{ 
 			src: "JavaScript/Controls/Mouse.js"
@@ -49,9 +56,12 @@ function getManifest() {
 		{ 
 			src: "JavaScript/Controls/KeyCode.js"
 		},
-        //Collision
+        // Collision
         { 
 			src: "JavaScript/Collision/ndgmr.Collision.js"
+		},
+		{
+			src: "JavaScript/Collision/CollisionChecker.js"
 		},
 		// Text
 		{ 
@@ -159,32 +169,44 @@ function getManifest() {
 		},
 		// Images
 		{ 
-			src: "Images/buttons.png",
+			src: "Images/SpriteSheets/buttons.png",
 			id: "buttonSprites"
 		},
 		{ 
-			src: "Images/sprites.png",
+			src: "Images/SpriteSheets/sprites.png",
 			id: "characterSprite"
 		},
 		{
-			src: "Images/MainMenuBackground.jpg",
+			src: "Images/Backgrounds/MainMenuBackground.jpg",
 			id: "MainMenuBackground"
 		},
 		{
-			src: "Images/InstructionBackground.jpg",
+			src: "Images/Backgrounds/InstructionBackground.jpg",
 			id: "InstructionBackground"
 		},
 		{
-			src: "Images/GamePlayBackground.jpg",
+			src: "Images/Backgrounds/GamePlayBackground.jpg",
 			id: "GamePlayBackground"
 		},
 		{
-			src: "Images/GameOverBackground.jpg",
+			src: "Images/Backgrounds/GameOverBackground.jpg",
 			id: "GameOverBackground"
 		},
 		{
-			src: "Images/LevelLoad.jpg",
+			src: "Images/Backgrounds/LevelLoad.jpg",
 			id: "LevelLoad"
+		},
+		{
+			src: "Images/Sprites/Wall.jpg",
+			id: "Wall"
+		},
+		{
+			src: "Images/Sprites/RedPlayer.jpg",
+			id: "RedPlayer"
+		},
+		{
+			src: "Images/Sprites/BluePlayer.jpg",
+			id: "BluePlayer"
 		}
 	];
 }

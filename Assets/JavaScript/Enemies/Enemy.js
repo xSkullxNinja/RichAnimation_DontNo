@@ -48,6 +48,7 @@ function EnemyInit(){
     this.img.y = this.startY;
     //add to stage
     stage.addChild(this.img);
+	//collisionChecker.addEnemyCollider(this.img);
 }
 function EnUpdate(){
     //Check if correct player is moving.
