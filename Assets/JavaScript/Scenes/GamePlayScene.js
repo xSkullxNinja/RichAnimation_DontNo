@@ -1,7 +1,5 @@
-var walker;
 var mouseText, scoreText, pauseText;
 var paused = false;
-var wall;
 
 function enterGamePlayScene(evt) {
 	loadBackground("GamePlayBackground");
@@ -18,12 +16,12 @@ function enterGamePlayScene(evt) {
 	mouseText.init(315, 165, stage);
 	scoreText.init(365, 200, stage);
 	
-	//wall = new createjs.Bitmap(queue.getResult("Wall"));
+	//var wall = new createjs.Bitmap(queue.getResult("Wall"));
 	//wall.x = 535;
 	//wall.y = 300;
 	//stage.addChild(wall);
 	
-	//newWall = new createjs.Bitmap(queue.getResult("Wall"));
+	//var newWall = new createjs.Bitmap(queue.getResult("Wall"));
 	//newWall.x = 490;
 	//newWall.y = 300;
 	//newWall.rotation = 90;

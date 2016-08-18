@@ -12,9 +12,9 @@ var player1, player2;
 function enterGamePlayState(evt) {
 	enterGamePlayScene(evt);
 	resetGameTimer();
-	player1 = new Player();
+	player1 = new Player("Red");
 	player1.init(evt, 0, 0);
-	player2 = new Player();
+	player2 = new Player("Blue");
 	player2.init(evt, 100, 100);
 	assignKeyPressFunction(keyCodes.LETTER_A, movePlayer1Left);
 	assignKeyPressFunction(keyCodes.LETTER_S, movePlayer1Down);

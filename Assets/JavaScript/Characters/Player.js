@@ -1,8 +1,9 @@
-function Player() {
+function Player(color) {
 	Character.call(this);
     this.shape;
     this.x;
     this.y;
+	this.color = color;
 }
 Player.prototype = Object.create(Character.prototype);
 Player.prototype.constuctor = Player;
@@ -18,7 +19,12 @@ function playerInit(evt, xPos, yPos) {
     this.x = xPos;
     this.y = yPos;
     var graphics = new createjs.Graphics().beginFill("#FF0000").drawRect(0, 0, 50, 50);
-    this.shape = new createjs.Shape(graphics);
+    if (this.color == "Blue") {
+		this.shape = new createjs.Bitmap(queue.getResult("BluePlayer"));
+	}
+	else if (this.color == "Red") {
+		this.shape = new createjs.Bitmap(queue.getResult("RedPlayer"));	
+	}
     this.shape.x = this.x;
     this.shape.y = this.y;
     stage.addChild(this.shape);
