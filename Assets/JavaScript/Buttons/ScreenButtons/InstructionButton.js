@@ -7,9 +7,12 @@ InstructionButton.prototype.constuctor = InstructionButton;
 
 InstructionButton.prototype.init = setupInstructionButton;
 InstructionButton.prototype.click = clickedInstructionButton;
+InstructionButton.prototype.doubleClick = null;
+InstructionButton.prototype.rightClick = null;
 InstructionButton.prototype.mouseOver = mouseOverInstructionButton;
 InstructionButton.prototype.mouseOut = mouseOutInstructionButton;
 InstructionButton.prototype.mouseDown = mouseDownInstructionButton;
+InstructionButton.prototype.mouseUp = mouseUpInstructionButton;
 
 function setupInstructionButton(evt, xPos, yPos) {
 	stage.addChild(this.buttonSprite);
@@ -18,7 +21,6 @@ function setupInstructionButton(evt, xPos, yPos) {
 	this.buttonSprite.gotoAndPlay("instructUp");
 }
 function clickedInstructionButton(evt) {
-	this.gotoAndPlay("instructOver");
 	stateManager.change(evt, new InstructionsState());
 }
 function mouseOverInstructionButton(evt) {
@@ -29,4 +31,7 @@ function mouseOutInstructionButton(evt) {
 }
 function mouseDownInstructionButton(evt) {
 	this.gotoAndPlay("instructDown");
+}
+function mouseUpInstructionButton(evt) {
+	this.gotoAndPlay("instructOver");
 }

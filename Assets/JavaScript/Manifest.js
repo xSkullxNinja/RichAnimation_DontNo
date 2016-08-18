@@ -13,6 +13,13 @@ function getManifest() {
 		{
 			src: "JavaScript/Manager/TimerManager.js"
 		},
+        //Enemies
+        {
+            src: "JavaScript/Manager/EnemyManager.js"  
+        },
+        {
+            src: "JavaScript/Enemies/Enemy.js"  
+        },
 		// Sound
 		{
 			src: "JavaScript/Sound/Sound.js"

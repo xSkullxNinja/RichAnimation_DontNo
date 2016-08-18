@@ -31,7 +31,6 @@ function handleKeyPress(evt) {
 	}
 }
 function assignKeyPressFunction(keyCode, keyPressFunction) {
-	console.log(keyFunctions);
 	if(keyFunctions[keyCode] === undefined || keyFunctions[keyCode] === null) {
 		keyFunctions[keyCode] = { value: false, down: [], up: [], press: [] };
 	}
