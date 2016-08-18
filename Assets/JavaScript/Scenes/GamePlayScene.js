@@ -30,7 +30,8 @@ function enterGamePlayScene(evt) {
 	//collisionChecker.addCollider(wall);
 	//collisionChecker.addCollider(newWall);
 	
-	highScore = 0;
+	score = 0;
+    numCollected = 0;
 }
 function pause(){
     if(paused){
@@ -44,11 +45,10 @@ function pause(){
 }
 function runGamePlayScene(evt) {
     runGameTimer(evt);
-	highScore = gameTimer;
 	if(gameTimer >= 10) {
 		stateManager.change(evt, new GameOverState());
 	}
 	//collisionChecker.pushBackIfColliding(walker.sprite);
 	mouseText.change(getMousePosition());
-	scoreText.change(highScore);
+	scoreText.change(score);
 }

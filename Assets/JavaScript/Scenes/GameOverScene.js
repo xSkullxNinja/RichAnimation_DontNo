@@ -10,5 +10,5 @@ function enterGameOverScene(evt) {
 	muteButton.init(evt, 33, 534);
 	scoreText.init(365, 200, stage);
 
-	scoreText.change(highScore);
+	scoreText.change(score);
 }

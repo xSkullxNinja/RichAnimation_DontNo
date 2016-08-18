@@ -35,7 +35,6 @@ function runGamePlayState(evt) {
 }
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();
-	highScore = gameTimer;
 	clearAllKeyCodes();
 }
 function movePlayer1Right() {
@@ -61,4 +60,10 @@ function movePlayer2Down() {
 }
 function movePlayer2Up() {
 	player2.moveUp();
+}
+function increaseScore(collectible){
+    //Add removing the collectible from the collision array as well
+    stage.removeChild(collectible);
+    numCollected++;
+    score += (500 * numCollected);
 }
