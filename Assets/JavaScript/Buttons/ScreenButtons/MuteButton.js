@@ -7,6 +7,12 @@ MuteButton.prototype.constuctor = MuteButton;
 
 MuteButton.prototype.init = setupMuteButton;
 MuteButton.prototype.click = clickedMuteButton;
+MuteButton.prototype.doubleClick = null;
+MuteButton.prototype.rightClick = null;
+MuteButton.prototype.mouseOver = null;
+MuteButton.prototype.mouseOut = null;
+MuteButton.prototype.mouseDown = null;
+MuteButton.prototype.mouseUp = null;
 
 function setupMuteButton(evt, xPos, yPos) {
 	stage.addChild(this.buttonSprite);

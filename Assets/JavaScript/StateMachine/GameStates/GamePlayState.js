@@ -24,9 +24,14 @@ function enterGamePlayState(evt) {
 	assignKeyPressFunction(keyCodes.KEYCODE_DOWN, movePlayer2Down);
 	assignKeyPressFunction(keyCodes.KEYCODE_RIGHT, movePlayer2Right);
 	assignKeyPressFunction(keyCodes.KEYCODE_UP, movePlayer2Up);
+	xPos = yPos = 400;
+    enemyManager.loadLevel1();
 }
-function runGamePlayState(evt) {
-	runGamePlayScene(evt);
+function runGamePlayState(evt) {  
+    if(!paused){
+	   runGamePlayScene(evt);
+        enemyManager.update();
+    }
 }
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();

@@ -5,7 +5,7 @@ function gameLoop(evt) {
 	stage.update(evt);
 }
 function loopBeforeState(evt) {
-	runGameTimer(evt);
+	
 }
 function loopAfterState(evt) {
 	handleKeyPress(evt);

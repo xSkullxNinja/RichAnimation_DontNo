@@ -7,9 +7,12 @@ PlayAgainButton.prototype.constuctor = PlayAgainButton;
 
 PlayAgainButton.prototype.init = setupPlayAgainButton;
 PlayAgainButton.prototype.click = clickedPlayAgainButton;
+PlayAgainButton.prototype.doubleClick = null;
+PlayAgainButton.prototype.rightClick = null;
 PlayAgainButton.prototype.mouseOver = mouseOverPlayAgainButton;
 PlayAgainButton.prototype.mouseOut = mouseOutPlayAgainButton;
 PlayAgainButton.prototype.mouseDown = mouseDownPlayAgainButton;
+PlayAgainButton.prototype.mouseUp = mouseUpPlayAgainButton;
 
 function setupPlayAgainButton(evt, xPos, yPos) {
 	stage.addChild(this.buttonSprite);
@@ -18,7 +21,6 @@ function setupPlayAgainButton(evt, xPos, yPos) {
 	this.buttonSprite.gotoAndPlay("playAgainUp");
 }
 function clickedPlayAgainButton(evt) {
-	this.gotoAndPlay("playAgainOver");
 	stateManager.change(evt, new LoadingLevelState());
 }
 function mouseOverPlayAgainButton(evt) {
@@ -29,4 +31,7 @@ function mouseOutPlayAgainButton(evt) {
 }
 function mouseDownPlayAgainButton(evt) {
 	this.gotoAndPlay("playAgainDown");
+}
+function mouseUpPlayAgainButton(evt) {
+	this.gotoAndPlay("playAgainOver");
 }
