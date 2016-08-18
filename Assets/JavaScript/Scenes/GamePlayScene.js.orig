@@ -1,6 +1,11 @@
+var walker;
+<<<<<<< HEAD
+var mouseText, scoreText;
+var wall;
+=======
 var mouseText, scoreText, pauseText;
 var paused = false;
-
+>>>>>>> 48a9dad29a43ee43a386897f058b5959c307a193
 function enterGamePlayScene(evt) {
 	loadBackground("GamePlayBackground");
 	var menuButton = getButton(MENU_BUTTON);
@@ -15,13 +20,14 @@ function enterGamePlayScene(evt) {
 	muteButton.init(evt, 33, 534);
 	mouseText.init(315, 165, stage);
 	scoreText.init(365, 200, stage);
+<<<<<<< HEAD
 	
-	//var wall = new createjs.Bitmap(queue.getResult("Wall"));
+	//wall = new createjs.Bitmap(queue.getResult("Wall"));
 	//wall.x = 535;
 	//wall.y = 300;
 	//stage.addChild(wall);
 	
-	//var newWall = new createjs.Bitmap(queue.getResult("Wall"));
+	//newWall = new createjs.Bitmap(queue.getResult("Wall"));
 	//newWall.x = 490;
 	//newWall.y = 300;
 	//newWall.rotation = 90;
@@ -30,8 +36,11 @@ function enterGamePlayScene(evt) {
 	//collisionChecker.addCollider(wall);
 	//collisionChecker.addCollider(newWall);
 	
-	score = 0;
-    numCollected = 0;
+	walker.init(400, 400, "standRight");
+=======
+
+>>>>>>> 48a9dad29a43ee43a386897f058b5959c307a193
+	highScore = 0;
 }
 function pause(){
     if(paused){
@@ -45,10 +54,14 @@ function pause(){
 }
 function runGamePlayScene(evt) {
     runGameTimer(evt);
+	highScore = gameTimer;
 	if(gameTimer >= 10) {
 		stateManager.change(evt, new GameOverState());
 	}
 	//collisionChecker.pushBackIfColliding(walker.sprite);
 	mouseText.change(getMousePosition());
-	scoreText.change(score);
+	scoreText.change(highScore);
 }
+
+//Width: [21.949] Height: [1.6]
+//Width: [1.95] Height: [43]

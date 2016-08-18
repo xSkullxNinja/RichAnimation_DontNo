@@ -41,7 +41,7 @@ function setupCanvas() {
     imageObj.onload = function() {
 		canvasContext.drawImage(imageObj, 0, 0);
     };
-    imageObj.src = 'Assets/Images/LoadingBackground.jpg';
+    imageObj.src = 'Assets/Images/Backgrounds/LoadingBackground.jpg';
 
 	canvasContext.strokeStyle = "green";
 	canvasContext.fillStyle = "red";
