@@ -1,8 +1,11 @@
 var walker;
+<<<<<<< HEAD
+var mouseText, scoreText;
+var wall;
+=======
 var mouseText, scoreText, pauseText;
 var paused = false;
-var wall;
-
+>>>>>>> 48a9dad29a43ee43a386897f058b5959c307a193
 function enterGamePlayScene(evt) {
 	loadBackground("GamePlayBackground");
 	var menuButton = getButton(MENU_BUTTON);
@@ -17,6 +20,7 @@ function enterGamePlayScene(evt) {
 	muteButton.init(evt, 33, 534);
 	mouseText.init(315, 165, stage);
 	scoreText.init(365, 200, stage);
+<<<<<<< HEAD
 	
 	//wall = new createjs.Bitmap(queue.getResult("Wall"));
 	//wall.x = 535;
@@ -32,6 +36,10 @@ function enterGamePlayScene(evt) {
 	//collisionChecker.addCollider(wall);
 	//collisionChecker.addCollider(newWall);
 	
+	walker.init(400, 400, "standRight");
+=======
+
+>>>>>>> 48a9dad29a43ee43a386897f058b5959c307a193
 	highScore = 0;
 }
 function pause(){
@@ -54,3 +62,6 @@ function runGamePlayScene(evt) {
 	mouseText.change(getMousePosition());
 	scoreText.change(highScore);
 }
+
+//Width: [21.949] Height: [1.6]
+//Width: [1.95] Height: [43]
