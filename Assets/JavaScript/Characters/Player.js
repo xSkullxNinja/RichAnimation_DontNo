@@ -8,7 +8,7 @@ Player.prototype = Object.create(Character.prototype);
 Player.prototype.constuctor = Player;
 
 Player.prototype.init = playerInit;
-Player.prototype.update = PlayerUpdate;
+Player.prototype.update = playerUpdate;
 Player.prototype.moveRight = movePlayerRight;
 Player.prototype.moveLeft = movePlayerLeft;
 Player.prototype.moveUp = movePlayerUp;
