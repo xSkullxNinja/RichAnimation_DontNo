@@ -33,18 +33,14 @@ function playerUpdate(evt) {
     
 }
 function movePlayerRight(evt) {
-    this.x += 5;
-    this.shape.x = this.x;
+    this.shape.x += 5;
 }
 function movePlayerLeft(evt) {
-    this.x -= 5;
-    this.shape.x = this.x;
+    this.shape.x -= 5;
 }
 function movePlayerUp(evt) {
-    this.y -= 5;
-    this.shape.y = this.y;
+    this.shape.y -= 5;
 }
 function movePlayerDown(evt) {
-    this.y += 5;
-    this.shape.y = this.y;
+    this.shape.y += 5;
 }

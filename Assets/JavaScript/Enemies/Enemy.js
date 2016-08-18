@@ -38,6 +38,7 @@ function EnemyInit(){
     //Create shape
     this.img = new EnemySprite(this.color);
     this.img.init(this.startX, this.startY);
+    collisionChecker.addEnemyCollider(this.img.sprite);
 }
 function EnUpdate(){
     //Check if correct player is moving.

@@ -31,6 +31,11 @@ function runGamePlayState(evt) {
     if(!paused){
 	   runGamePlayScene(evt);
         enemyManager.update();
+//Eduardo did it.
+//        if (collisionChecker.isCollidingWithEnemy(player1.shape, 0)) {
+//            console.log("THis touched something");
+//        }
+        collisionChecker.pushBackIfColliding(player1.shape);
     }
 }
 function exitGamePlayState(evt) {
