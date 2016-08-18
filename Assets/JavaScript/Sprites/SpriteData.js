@@ -29,3 +29,34 @@ function loadSpriteCharacter() {
     var walk = new createjs.Sprite(walkSheet);
 	return walk;
 }
+
+function loadSpriteRedEnemy() {
+    //Frames, x, y, width, height, 0, offsetX, offsetY
+	var enemySheet = new createjs.SpriteSheet({
+        images: [queue.getResult("redEnemySprite")],
+        frames: [[0,0,25,25,0,0,0]]
+    });
+
+	var enemys = new createjs.Sprite(enemySheet);
+	return enemys;
+}
+
+function loadSpriteBluEnemy() {
+	var enemySheet = new createjs.SpriteSheet({
+        images: [queue.getResult("bluEnemySprite")],
+        frames: [[0,0,25,25,0,0,0]]
+    });
+
+	var enemys = new createjs.Sprite(enemySheet);
+	return enemys;
+}
+
+function loadSpritePurEnemy() {
+	var enemySheet = new createjs.SpriteSheet({
+        images: [queue.getResult("purEnemySprite")],
+        frames: [[0,0,25,25,0,0,0]]
+    });
+
+	var enemys = new createjs.Sprite(enemySheet);
+	return enemys;
+}
