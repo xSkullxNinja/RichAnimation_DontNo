@@ -1,4 +1,4 @@
-function Sound() {
+function Sound(soundId) {
 
 }
 Sound.prototype.init = setupDefaultSound;
@@ -8,7 +8,7 @@ Sound.prototype.unmute = unmuteDefaultSound;
 Sound.prototype.setVolume = setDefaultSound;
 Sound.prototype.play = playDefaultSound;
 
-function setupDefaultSound(soundId, maxVolume) {
+function setupDefaultSound(maxVolume) {
 	console.log("Default Sound");
 }
 function isMutedDefaultSound() {

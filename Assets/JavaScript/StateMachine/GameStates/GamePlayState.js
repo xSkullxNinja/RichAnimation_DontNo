@@ -36,6 +36,10 @@ function runGamePlayState(evt) {
 //            console.log("THis touched something");
 //        }
         collisionChecker.pushBackIfColliding(player1.shape);
+        collisionChecker.pushBackIfColliding(player2.shape);
+		// if(collisionChecker.isCollidingWithEnemy(player1.shape, 1.0)) {
+		// 	console.log("Colliding");
+		// }
     }
 }
 function exitGamePlayState(evt) {
