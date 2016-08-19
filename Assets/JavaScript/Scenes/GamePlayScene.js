@@ -16,10 +16,10 @@ function enterGamePlayScene(evt) {
 	mouseText.init(315, 165, stage);
 	scoreText.init(365, 200, stage);
 	
-	//var wall = new createjs.Bitmap(queue.getResult("Wall"));
-	//wall.x = 535;
-	//wall.y = 300;
-	//stage.addChild(wall);
+	var wall = new createjs.Bitmap(queue.getResult("Wall"));
+	wall.x = 535;
+	wall.y = 300;
+	stage.addChild(wall);
 	
 	//var newWall = new createjs.Bitmap(queue.getResult("Wall"));
 	//newWall.x = 490;
@@ -27,7 +27,7 @@ function enterGamePlayScene(evt) {
 	//newWall.rotation = 90;
 	//stage.addChild(newWall);
 	
-	//collisionChecker.addCollider(wall);
+	collisionChecker.addCollider(wall);
 	//collisionChecker.addCollider(newWall);
 	
 	score = 0;

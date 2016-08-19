@@ -1,7 +1,8 @@
-function GameSound() {
+function GameSound(soundId) {
 	Sound.call(this);
     this.maxVolume;
     this.sound;
+    this.soundId = soundId;
 }
 GameSound.prototype = Object.create(Sound.prototype);
 GameSound.prototype.constuctor = GameSound;
@@ -13,12 +14,12 @@ GameSound.prototype.unmute = unmuteSound;
 GameSound.prototype.setVolume = setSoundVolume;
 GameSound.prototype.play = playSound;
 
-function setupSound(soundId, maxVolume) {
+function setupSound(maxVolume) {
     this.maxVolume = maxVolume;
     var volumePercent = sound[0] !== undefined ? sound[0].sound.volume / sound[0].maxVolume : 1;
     var volume = this.maxVolume * volumePercent;
 	var soundConfig = new createjs.PlayPropsConfig().set({loop: 0, volume: volume})
-	this.sound = createjs.Sound.play(soundId, soundConfig);
+	this.sound = createjs.Sound.play(this.soundId, soundConfig);
     this.sound.stop();
     sound[sound.length] = this;
 }

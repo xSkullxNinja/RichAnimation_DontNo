@@ -130,6 +130,9 @@ function getManifest() {
 		{
 			src: "JavaScript/Sprites/CharacterSprite/BlockSprite.js"
 		},
+		{
+			src: "JavaScript/Sprites/CharacterSprite/EnemySprite.js"
+		},
 		// Buttons
 		{
 			src: "JavaScript/Buttons/Button.js"
@@ -175,6 +178,18 @@ function getManifest() {
 		{ 
 			src: "Images/SpriteSheets/sprites.png",
 			id: "characterSprite"
+		},
+		{ 
+			src: "Images/RedEnemy.png",
+			id: "redEnemySprite"
+		},
+		{ 
+			src: "Images/BlueEnemy.png",
+			id: "bluEnemySprite"
+		},
+		{ 
+			src: "Images/PurpleEnemy.png",
+			id: "purEnemySprite"
 		},
 		{
 			src: "Images/Backgrounds/MainMenuBackground.jpg",
