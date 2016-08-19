@@ -81,10 +81,10 @@ var collisionChecker = {
 			}
 		}
 	},
-	isCollidingWithEnemy: function () {
+	isCollidingWithEnemy: function (bitmapChecking, alphaThreshold) {
 		for (i = 0; i < enemyColliders.length; ++i) {
 			var collider = enemyColliders[i];
-			if (collider != bitmapChecking && ndgmr.checkPixelCollision(bitmapChecking, colliders[i], alphaThreshold)) {
+			if (collider != bitmapChecking && ndgmr.checkPixelCollision(bitmapChecking, collider, alphaThreshold)) {
 				return true;
 			}
 		}

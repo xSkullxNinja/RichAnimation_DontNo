@@ -31,11 +31,19 @@ function runGamePlayState(evt) {
     if(!paused){
 	   runGamePlayScene(evt);
         enemyManager.update();
+//Eduardo did it.
+//        if (collisionChecker.isCollidingWithEnemy(player1.shape, 0)) {
+//            console.log("THis touched something");
+//        }
+        collisionChecker.pushBackIfColliding(player1.shape);
+        collisionChecker.pushBackIfColliding(player2.shape);
+		// if(collisionChecker.isCollidingWithEnemy(player1.shape, 1.0)) {
+		// 	console.log("Colliding");
+		// }
     }
 }
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();
-	highScore = gameTimer;
 	clearAllKeyCodes();
 }
 function movePlayer1Right() {
@@ -61,4 +69,10 @@ function movePlayer2Down() {
 }
 function movePlayer2Up() {
 	player2.moveUp();
+}
+function increaseScore(collectible){
+    //Add removing the collectible from the collision array as well
+    stage.removeChild(collectible);
+    numCollected++;
+    score += (500 * numCollected);
 }
