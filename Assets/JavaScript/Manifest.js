@@ -196,15 +196,15 @@ function getManifest() {
 			id: "starSprite"
 		},
 		{ 
-			src: "Images/RedEnemy.png",
+			src: "Images/Sprites/RedEnemy.png",
 			id: "redEnemySprite"
 		},
 		{ 
-			src: "Images/BlueEnemy.png",
+			src: "Images/Sprites/BlueEnemy.png",
 			id: "blueEnemySprite"
 		},
 		{ 
-			src: "Images/PurpleEnemy.png",
+			src: "Images/Sprites/PurpleEnemy.png",
 			id: "purpleEnemySprite"
 		},
 		{

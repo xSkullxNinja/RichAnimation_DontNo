@@ -32,9 +32,9 @@ function loadSpriteCharacter() {
 function loadSpriteStar() {
 	var starSheet = new createjs.SpriteSheet({
         images: [queue.getResult("starSprite")],
-        frames: [[0,0,20,20,0,0,0],[20,0,20,20,0,0,0],[0,20,20,20,0,0,0],[20,20,20,20,0,0,0]],
+        frames: [[0,0,25,25,0,0,0],[25,0,25,25,0,0,0],[0,25,25,25,0,0,0],[26,25,25,25,0,0,0]],
         animations: {
-            standRight: [0, 3, "starSpin", .5],
+            starSpin: [0, 3, "starSpin", .4],
         }
     });
 

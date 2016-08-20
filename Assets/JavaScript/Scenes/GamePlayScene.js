@@ -17,15 +17,25 @@ function enterGamePlayScene(evt) {
 	scoreText.init(365, 350, stage);
 	
     makeWalls();
-	
-	//var newWall = new createjs.Bitmap(queue.getResult("Wall"));
-	//newWall.x = 490;
-	//newWall.y = 300;
-	//newWall.rotation = 90;
-	//stage.addChild(newWall);
-	
-	//collisionChecker.addCollider(newWall);
-	
+
+    var star = new StarSprite(STAR_SPRITES);
+    star.init(37.5, 517.5);
+    star.play("starSpin");
+	star.sprite.scaleX = 2;
+	star.sprite.scaleY = 2;
+
+    star = new StarSprite(STAR_SPRITES);
+    star.init(712.5, 32.5);
+    star.play("starSpin");
+	star.sprite.scaleX = 2;
+	star.sprite.scaleY = 2;
+
+    star = new StarSprite(STAR_SPRITES);
+    star.init(375, 275);
+    star.play("starSpin");
+	star.sprite.scaleX = 2;
+	star.sprite.scaleY = 2;
+
 	score = 0;
     numCollected = 0;
 }
@@ -48,74 +58,35 @@ function runGamePlayScene(evt) {
 	mouseText.change(getMousePosition());
 	scoreText.change(score);
 }
+function addWall(xPos, yPos, scaleX, scaleY) {
+    var wall = new WallSprite(WALL_SPRITES);
+    wall.init(xPos, yPos);
+    wall.sprite.scaleX = scaleX;
+    wall.sprite.scaleY = scaleY;
+    collisionChecker.addCollider(wall.sprite);
+}
 function makeWalls(){
-    var wall = new createjs.Bitmap(queue.getResult("wallSprite"));
-    
     //Verticle walls
-	wall.x = 0;
-	wall.y = 0;
-    wall.scaleY = 30;
-    addToStageAndCollider(wall.clone());
-    
-    wall.x = 780;
-    addToStageAndCollider(wall.clone());
+    addWall(0, 0, 1, 30);
+    addWall(780, 0, 1, 30);
     
     //inner walls
-    wall.x = 95;
-    wall.y = 175;
-    wall.scaleX = 2;
-    wall.scaleY = 10;
-    addToStageAndCollider(wall.clone());
-    
-    wall.x = 665;
-    wall.y = 225;
-    addToStageAndCollider(wall.clone());
+    addWall(95, 175, 2, 10);
+    addWall(665, 225, 2, 10);
     
     //tall walls
-    wall.x = 210;
-    wall.y = 20;
-    wall.scaleX = 3;
-    wall.scaleY = 20;
-    addToStageAndCollider(wall.clone());
-    
-    wall.x = 530;
-    wall.y = 180;
-    addToStageAndCollider(wall.clone());
+    addWall(210, 20, 3, 20);
+    addWall(530, 180, 3, 20);
     
     //Horizontal walls
-    wall.x = 0;
-    wall.y = 0;
-    wall.scaleX = 40;
-    wall.scaleY = 1;
-    addToStageAndCollider(wall.clone());
-    
-    wall.x = 0;
-    wall.y = 580;
-    addToStageAndCollider(wall.clone());
+    addWall(0, 0, 40, 1);
+    addWall(0, 580, 40, 1);
 
     //Mini walls
-    wall.x = 20;
-    wall.y = 465;
-    wall.scaleX = 5;
-    wall.scaleY = 2;
-    addToStageAndCollider(wall.clone());
-    
-    wall.x = 680;
-    wall.y = 95;
-    addToStageAndCollider(wall.clone());
+    addWall(20, 465, 5, 2);
+    addWall(680, 95, 5, 2);
     
     //Center walls
-    wall.x = 340;
-    wall.y = 145;
-    wall.scaleX = 6;
-    wall.scaleY = 3;
-    addToStageAndCollider(wall.clone());
-    
-    wall.x = 340;
-    wall.y = 395;
-    addToStageAndCollider(wall.clone());
-}
-function addToStageAndCollider(wall){
-    stage.addChild(wall);
-    collisionChecker.addCollider(wall);
+    addWall(340, 145, 6, 3);
+    addWall(340, 395, 6, 3);
 }
