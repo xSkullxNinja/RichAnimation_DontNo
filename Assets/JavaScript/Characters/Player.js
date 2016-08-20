@@ -1,8 +1,6 @@
 function Player(color) {
 	Character.call(this);
     this.shape;
-    this.x;
-    this.y;
 	this.color = color;
 }
 Player.prototype = Object.create(Character.prototype);
@@ -16,8 +14,6 @@ Player.prototype.moveUp = movePlayerUp;
 Player.prototype.moveDown = movePlayerDown;
 
 function playerInit(evt, xPos, yPos) {
-    this.x = xPos;
-    this.y = yPos;
     var graphics = new createjs.Graphics().beginFill("#FF0000").drawRect(0, 0, 50, 50);
     if (this.color == "Blue") {
 		this.shape = new createjs.Bitmap(queue.getResult("BluePlayer"));
@@ -25,8 +21,8 @@ function playerInit(evt, xPos, yPos) {
 	else if (this.color == "Red") {
 		this.shape = new createjs.Bitmap(queue.getResult("RedPlayer"));	
 	}
-    this.shape.x = this.x;
-    this.shape.y = this.y;
+    this.shape.x = xPos;
+    this.shape.y = yPos;
     stage.addChild(this.shape);
 }
 function playerUpdate(evt) {
