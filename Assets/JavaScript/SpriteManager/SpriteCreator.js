@@ -4,9 +4,9 @@ var RED_ENEMY_SPRITES    = 2;
 var BLUE_ENEMY_SPRITES    = 3;
 var PURPLE_ENEMY_SPRITES    = 4;
 var WALL_SPRITES		= 5;
-var STAR_SPRITES		= 5;
+var STAR_SPRITES		= 6;
 
-var NUM_SPRITES = 6;
+var NUM_SPRITES = 7;
 
 var spriteList = [];
 

@@ -13,8 +13,8 @@ function enterGamePlayScene(evt) {
     
 	menuButton.init(evt, 673, 534);
 	muteButton.init(evt, 33, 534);
-	mouseText.init(315, 165, stage);
-	scoreText.init(365, 200, stage);
+	mouseText.init(315, 315, stage);
+	scoreText.init(365, 350, stage);
 	
     makeWalls();
 	
@@ -49,8 +49,7 @@ function runGamePlayScene(evt) {
 	scoreText.change(score);
 }
 function makeWalls(){
-    var wall = new createjs.Bitmap(queue.getResult("Wall"));
-	var sideWall = new createjs.Bitmap(queue.getResult("SideWall"));
+    var wall = new createjs.Bitmap(queue.getResult("wallSprite"));
     
     //Verticle walls
 	wall.x = 0;
@@ -62,55 +61,58 @@ function makeWalls(){
     addToStageAndCollider(wall.clone());
     
     //inner walls
-    wall.x = 90;
-    wall.y = 165;
+    wall.x = 95;
+    wall.y = 175;
     wall.scaleX = 2;
     wall.scaleY = 10;
     addToStageAndCollider(wall.clone());
     
-    wall.x = 675;
-    wall.y = 250;
+    wall.x = 665;
+    wall.y = 225;
     addToStageAndCollider(wall.clone());
     
     //tall walls
-    wall.x = 200;
-    wall.y = 30;
+    wall.x = 210;
+    wall.y = 20;
     wall.scaleX = 3;
     wall.scaleY = 20;
     addToStageAndCollider(wall.clone());
     
-    wall.x = 550;
-    wall.y = 200;
+    wall.x = 530;
+    wall.y = 180;
     addToStageAndCollider(wall.clone());
     
     //Horizontal walls
     wall.x = 0;
     wall.y = 0;
-    wall.scaleY = 2;
     wall.scaleX = 40;
+    wall.scaleY = 1;
     addToStageAndCollider(wall.clone());
     
-    wall.y = 560;
+    wall.x = 0;
+    wall.y = 580;
     addToStageAndCollider(wall.clone());
 
     //Mini walls
     wall.x = 20;
-    wall.y = 450;
+    wall.y = 465;
     wall.scaleX = 5;
+    wall.scaleY = 2;
     addToStageAndCollider(wall.clone());
     
     wall.x = 680;
-    wall.y = 120;
+    wall.y = 95;
     addToStageAndCollider(wall.clone());
     
     //Center walls
-    wall.x = 350;
-    wall.y = 150;
+    wall.x = 340;
+    wall.y = 145;
     wall.scaleX = 6;
     wall.scaleY = 3;
     addToStageAndCollider(wall.clone());
     
-    wall.y = 400;
+    wall.x = 340;
+    wall.y = 395;
     addToStageAndCollider(wall.clone());
 }
 function addToStageAndCollider(wall){

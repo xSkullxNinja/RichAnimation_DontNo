@@ -13,9 +13,9 @@ function enterGamePlayState(evt) {
 	enterGamePlayScene(evt);
 	resetGameTimer();
 	player1 = new Player("Red");
-	player1.init(evt, 0, 0);
+	player1.init(evt, 20, 20);
 	player2 = new Player("Blue");
-	player2.init(evt, 100, 100);
+	player2.init(evt, 730, 530);
 	assignKeyPressFunction(keyCodes.LETTER_A, movePlayer1Left);
 	assignKeyPressFunction(keyCodes.LETTER_S, movePlayer1Down);
 	assignKeyPressFunction(keyCodes.LETTER_D, movePlayer1Right);
@@ -36,8 +36,8 @@ function runGamePlayState(evt) {
 //        if (collisionChecker.isCollidingWithEnemy(player1.shape, 0)) {
 //            console.log("THis touched something");
 //        }
-        // collisionChecker.pushBackIfColliding(player1.shape);
-        // collisionChecker.pushBackIfColliding(player2.shape);
+        collisionChecker.pushBackIfColliding(player1.shape);
+        collisionChecker.pushBackIfColliding(player2.shape);
 		// if(collisionChecker.isCollidingWithEnemy(player1.shape, 1.0)) {
 		// 	console.log("Colliding");
 		// }
