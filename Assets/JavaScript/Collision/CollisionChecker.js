@@ -47,7 +47,7 @@ var collisionChecker = {
 			if (collider != bitmapChecking) {
 				var intersection = ndgmr.checkRectCollision(bitmapChecking, collider);
 				if (intersection != null) {
-					return intersection;
+					return { intersection: intersection, collider: collider };
 				}
 			}
 		}
@@ -64,12 +64,20 @@ var collisionChecker = {
 	},
 	pushBackIfColliding: function (bitmapChecking) {
 		var collision = collisionChecker.collisionPoint(bitmapChecking);
-		if (collision != null) {
-			if (collision.width > collision.height) {
-				bitmapChecking.y += collision.height;
+		if (collision != null && collision.intersection != null) {
+			if (collision.intersection.width > collision.intersection.height) {
+				var movement = collision.intersection.height;
+				if (bitmapChecking.y < collision.collider.y) {
+					movement = -movement;
+				}
+				bitmapChecking.y += movement;
 			}
 			else {
-				bitmapChecking.x -= collision.width;
+				var movement = collision.intersection.width;
+				if (bitmapChecking.x < collision.collider.x) {
+					movement = -movement;
+				}
+				bitmapChecking.x += movement;
 			}
 		}
 	},
