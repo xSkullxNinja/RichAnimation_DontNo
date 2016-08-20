@@ -1,5 +1,5 @@
 var RedMoving = true;
-var BlueMoving = false;
+var BlueMoving = true;
 
 function enemy(color, startX, startY, locationsX, locationsY){
     this.startX = startX;
@@ -8,7 +8,7 @@ function enemy(color, startX, startY, locationsX, locationsY){
     this.locationsX.push(startX);
     this.locationsY = locationsY;
     this.locationsY.push(startY);
-    this.nextLoc = 1;
+    this.nextLoc = 0;
     this.speed = 0.1;
     this.color = color;
     this.img;

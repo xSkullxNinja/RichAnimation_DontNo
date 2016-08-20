@@ -27,6 +27,7 @@ function enterGamePlayState(evt) {
 	xPos = yPos = 400;
     enemyManager.loadLevel1();
 }
+
 function runGamePlayState(evt) {  
     if(!paused){
 	   runGamePlayScene(evt);
