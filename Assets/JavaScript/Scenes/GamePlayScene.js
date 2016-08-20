@@ -16,15 +16,8 @@ function enterGamePlayScene(evt) {
 	mouseText.init(315, 165, stage);
 	scoreText.init(365, 200, stage);
 	
+	collisionChecker.clearColliders();
     makeWalls();
-	
-	//var newWall = new createjs.Bitmap(queue.getResult("Wall"));
-	//newWall.x = 490;
-	//newWall.y = 300;
-	//newWall.rotation = 90;
-	//stage.addChild(newWall);
-	
-	//collisionChecker.addCollider(newWall);
 	
 	score = 0;
     numCollected = 0;
@@ -44,7 +37,6 @@ function runGamePlayScene(evt) {
 	if(gameTimer >= 100) {
 		stateManager.change(evt, new GameOverState());
 	}
-	//collisionChecker.pushBackIfColliding(walker.sprite);
 	mouseText.change(getMousePosition());
 	scoreText.change(score);
 }

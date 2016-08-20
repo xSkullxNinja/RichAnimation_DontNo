@@ -30,17 +30,10 @@ function enterGamePlayState(evt) {
 
 function runGamePlayState(evt) {  
     if(!paused){
-	   runGamePlayScene(evt);
-        enemyManager.update();
-//Eduardo did it.
-//        if (collisionChecker.isCollidingWithEnemy(player1.shape, 0)) {
-//            console.log("THis touched something");
-//        }
-        collisionChecker.pushBackIfColliding(player1.shape);
-        collisionChecker.pushBackIfColliding(player2.shape);
-		// if(collisionChecker.isCollidingWithEnemy(player1.shape, 1.0)) {
-		// 	console.log("Colliding");
-		// }
+		runGamePlayScene(evt);
+		enemyManager.update();
+		collisionChecker.pushBackIfColliding(player1.shape);
+		collisionChecker.pushBackIfColliding(player2.shape);
     }
 }
 function exitGamePlayState(evt) {
