@@ -9,7 +9,7 @@ function enemy(color, startX, startY, locationsX, locationsY){
     this.locationsY = locationsY;
     this.locationsY.push(startY);
     this.nextLoc = 0;
-    this.speed = 0.1;
+    this.speed = 10;
     this.color = color;
     this.img;
 }
@@ -19,9 +19,21 @@ enemy.prototype.Update = EnUpdate;
 enemy.prototype.Init = EnemyInit;
 
 //Functions the enemies use, but don't need attached as prototypes
-function enLerp(start, next, speed){
+function enLerp(enemy, startX, startY, nextX, nextY, speed){
     //TODO: Update speed or fix lerp. Probably moves way too fast
-    return start + speed * (next - start);
+    var distanceX = nextX - startX;
+    var distanceY = nextY - startY;
+    var magnitude = Math.sqrt((distanceX * distanceX) + (distanceY * distanceY));
+    if(magnitude < speed){
+        enemy.img.sprite.x = nextX;
+        enemy.img.sprite.y = nextY;
+    }
+    else{
+        var directionX = distanceX / magnitude;
+        var directionY = distanceY / magnitude;
+        enemy.img.sprite.x += speed * directionX;
+        enemy.img.sprite.y += speed * directionY;
+    }
 }
 function enArrive(current, dest){
     var errorRange = 2;
@@ -53,9 +65,7 @@ function EnUpdate(){
     }
     
     //lerp to location[nextLoc], we have an x and y array
-    var nextXpos = enLerp(this.img.sprite.x, this.locationsX[this.nextLoc], this.speed);
-    var nextYpos = enLerp(this.img.sprite.y, this.locationsY[this.nextLoc], this.speed);
-    this.img.move(nextXpos, nextYpos);
+    enLerp(this, this.img.sprite.x, this.img.sprite.y, this.locationsX[this.nextLoc], this.locationsY[this.nextLoc], this.speed);
     
     //Check if there, likely check a small range
         //If so update nextLoc by one

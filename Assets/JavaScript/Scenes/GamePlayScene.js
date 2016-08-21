@@ -1,19 +1,23 @@
 var mouseText, scoreText, pauseText;
 var paused = false;
+var movingLeftPlayer1 = false; 
+var movingRightPlayer1 = false;
+var movingUpPlayer1 = false; 
+var movingDownPlayer1 = false;
+var movingLeftPlayer2 = false; 
+var movingRightPlayer2 = false;
+var movingUpPlayer2 = false; 
+var movingDownPlayer2 = false;
 
 function enterGamePlayScene(evt) {
 	loadBackground("GamePlayBackground");
-	var menuButton = getButton(MENU_BUTTON);
 	var muteButton = getButton(MUTE_BUTTON);
-	mouseText = new MouseText();
 	scoreText = new ScoreText();
     pauseText = new createjs.Text("Paused" ,"36px Arial", "#ffffff");
     pauseText.x = 300;
     pauseText.y = 282;
     
-	menuButton.init(evt, 673, 534);
 	muteButton.init(evt, 33, 534);
-	mouseText.init(315, 165, stage);
 	scoreText.init(365, 200, stage);
 	
 	collisionChecker.clearColliders();
@@ -37,14 +41,13 @@ function runGamePlayScene(evt) {
 	if(gameTimer >= 100) {
 		stateManager.change(evt, new GameOverState());
 	}
-	mouseText.change(getMousePosition());
 	scoreText.change(score);
 }
 function makeWalls(){
     var wall = new createjs.Bitmap(queue.getResult("Wall"));
 	var sideWall = new createjs.Bitmap(queue.getResult("SideWall"));
     
-    //Verticle walls
+    //Vertical walls
 	wall.x = 0;
 	wall.y = 0;
     wall.scaleY = 30;
