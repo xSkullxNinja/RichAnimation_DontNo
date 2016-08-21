@@ -44,7 +44,38 @@ function runGamePlayState(evt) {
 		enemyManager.update();
 		collisionChecker.pushBackIfColliding(player1.shape);
 		collisionChecker.pushBackIfColliding(player2.shape);
+        if(collisionChecker.isCollidingWithEnemy(player1.shape, 0.5)){
+            loseGame(evt);
+        }
+        if(collisionChecker.isCollidingWithEnemy(player2.shape, 0.5)){
+            loseGame(evt);
+        }
+        
+        if(level1Finished()){
+            WonLevel1(evt);
+        }
     }
+}
+function loseGame(evt){
+    collisionChecker.clearColliders();
+    collisionChecker.clearEnemyColliders();
+    stopEnemyMovement();
+    stateManager.change(evt, new GameOverState());
+}
+//TODO: remove score increase because collectables should do it for us. Although increasing score for winning could be good too.
+function WonLevel1(evt){
+    score += 1337;
+    collisionChecker.clearColliders();
+    collisionChecker.clearEnemyColliders();
+    stopEnemyMovement();
+    stateManager.change(evt, new GameOverState());
+}
+function level1Finished(){
+    if(player1.shape.x > 690 && player1.shape.y> 490
+      && player2.shape.x < 100 && player2.shape.y < 125){
+        return true;
+    }
+    return false;
 }
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();
@@ -105,6 +136,17 @@ function stopPlayer2Down() {
 }
 function stopPlayer2Up() {
 	movingUpPlayer2 = false;
+}
+function stopEnemyMovement(){
+    stopPlayer2Left();
+    stopPlayer2Right();
+    stopPlayer2Up();
+	stopPlayer2Down();
+    
+    stopPlayer1Up();
+    stopPlayer1Down();
+    stopPlayer1Left();
+    stopPlayer1Right();
 }
 function increaseScore(collectible){
     //Add removing the collectible from the collision array as well

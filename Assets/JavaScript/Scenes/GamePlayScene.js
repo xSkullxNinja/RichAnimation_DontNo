@@ -38,6 +38,7 @@ function pause(){
 }
 function runGamePlayScene(evt) {
     runGameTimer(evt);
+    //TODO: End the game properly
 	if(gameTimer >= 100) {
 		stateManager.change(evt, new GameOverState());
 	}
@@ -63,7 +64,7 @@ function makeWalls(){
     wall.scaleY = 10;
     addToStageAndCollider(wall.clone());
     
-    wall.x = 675;
+    wall.x = 680;
     wall.y = 250;
     addToStageAndCollider(wall.clone());
     

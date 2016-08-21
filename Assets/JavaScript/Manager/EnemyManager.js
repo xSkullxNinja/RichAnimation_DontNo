@@ -19,9 +19,9 @@ function loadLevel1(){
     this.enemyArray.push(redEnemy1);
     collisionChecker.addEnemyCollider(redEnemy1.img.sprite);
     
-    locationX = [750, 750, 650];
-    locationY = [200, 500, 500];
-    var redEnemy2 = new enemy("Red", 650, 200, locationX, locationY);
+    locationX = [740, 740, 640];
+    locationY = [200, 465, 465];
+    var redEnemy2 = new enemy("Red", 640, 200, locationX, locationY);
     redEnemy2.Init();
     this.enemyArray.push(redEnemy2);
     collisionChecker.addEnemyCollider(redEnemy2.img.sprite);
@@ -35,7 +35,7 @@ function loadLevel1(){
     collisionChecker.addEnemyCollider(bluEnemy1.img.sprite);
     
     locationX = [050, 050, 150];
-    locationY = [400, 100, 100];
+    locationY = [400, 110, 110];
     var bluEnemy2 = new enemy("Blue", 150, 400, locationX, locationY);
     bluEnemy2.Init();
     this.enemyArray.push(bluEnemy2);
@@ -50,6 +50,8 @@ function loadLevel1(){
     collisionChecker.addEnemyCollider(purpEnemy2.img.sprite);
     //Repeat for each enemy
 }
+
+//TODO: move this logic to the player instead of the manager
 function update(){
     for(i = 0; i < this.enemyArray.length; i++){
         var enemy = this.enemyArray[i];
