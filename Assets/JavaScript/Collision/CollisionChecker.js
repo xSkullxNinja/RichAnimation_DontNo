@@ -41,17 +41,19 @@ var collisionChecker = {
 		}
 		return null;
 	},
-	collisionPoint: function (bitmapChecking) {
+	collisionPoints: function (bitmapChecking) {
+		var collisions = [];
 		for (i = 0; i < colliders.length; ++i) {
 			var collider = colliders[i];
 			if (collider != bitmapChecking) {
 				var intersection = ndgmr.checkRectCollision(bitmapChecking, collider);
 				if (intersection != null) {
-					return { intersection: intersection, collider: collider };
+					var collision = { intersection: intersection, collider: collider };
+					collisions.push(collision);
 				}
 			}
 		}
-		return null;
+		return collisions;
 	},
 	isColliding: function (bitmapChecking, alphaThreshold) {
 		for (i = 0; i < colliders.length; ++i) {
@@ -63,23 +65,26 @@ var collisionChecker = {
 		return false;
 	},
 	pushBackIfColliding: function (bitmapChecking) {
-		var collision = collisionChecker.collisionPoint(bitmapChecking);
-		if (collision != null && collision.intersection != null) {
-			if (collision.intersection.width > collision.intersection.height) {
-				var movement = collision.intersection.height;
-				if (bitmapChecking.y < collision.collider.y) {
-					movement = -movement;
+		var collisions = collisionChecker.collisionPoints(bitmapChecking);
+		for (i = 0; i < collisions.length; ++i) {
+			var collision = collisions[i];
+			if (collision != null && collision.intersection != null) {
+				if (collision.intersection.width > collision.intersection.height) {
+					var movement = collision.intersection.height;
+					if (bitmapChecking.y < collision.collider.y) {
+						movement = -movement;
+					}
+					bitmapChecking.y += movement;
 				}
-				bitmapChecking.y += movement;
-			}
-			else {
-				var movement = collision.intersection.width;
-				if (bitmapChecking.x < collision.collider.x) {
-					movement = -movement;
+				else {
+					var movement = collision.intersection.width;
+					if (bitmapChecking.x < collision.collider.x) {
+						movement = -movement;
+					}
+					bitmapChecking.x += movement;
 				}
-				bitmapChecking.x += movement;
 			}
-		}
+		}		
 	},
 	isCollidingWithEnemy: function (bitmapChecking, alphaThreshold) {
 		for (i = 0; i < enemyColliders.length; ++i) {

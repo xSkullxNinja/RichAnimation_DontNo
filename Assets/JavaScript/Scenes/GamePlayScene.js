@@ -1,21 +1,24 @@
 var mouseText, scoreText, pauseText;
 var paused = false;
+var movingLeftPlayer1 = false; 
+var movingRightPlayer1 = false;
+var movingUpPlayer1 = false; 
+var movingDownPlayer1 = false;
+var movingLeftPlayer2 = false; 
+var movingRightPlayer2 = false;
+var movingUpPlayer2 = false; 
+var movingDownPlayer2 = false;
 
 function enterGamePlayScene(evt) {
 	loadBackground("GamePlayBackground");
-	var menuButton = getButton(MENU_BUTTON);
 	var muteButton = getButton(MUTE_BUTTON);
-	mouseText = new MouseText();
 	scoreText = new ScoreText();
     pauseText = new createjs.Text("Paused" ,"36px Arial", "#ffffff");
     pauseText.x = 300;
     pauseText.y = 282;
     
-	menuButton.init(evt, 673, 534);
-	muteButton.init(evt, 33, 534);
-	mouseText.init(315, 315, stage);
-	scoreText.init(365, 350, stage);
-	
+	muteButton.init(evt, 33, 534);	
+	collisionChecker.clearColliders();
     makeWalls();
 
     var star = new StarSprite(STAR_SPRITES);
@@ -51,12 +54,10 @@ function pause(){
 }
 function runGamePlayScene(evt) {
     runGameTimer(evt);
+    //TODO: End the game properly
 	if(gameTimer >= 100) {
 		stateManager.change(evt, new GameOverState());
 	}
-	//collisionChecker.pushBackIfColliding(walker.sprite);
-	mouseText.change(getMousePosition());
-	scoreText.change(score);
 }
 function addWall(xPos, yPos, scaleX, scaleY) {
     var wall = new WallSprite(WALL_SPRITES);
@@ -66,27 +67,30 @@ function addWall(xPos, yPos, scaleX, scaleY) {
     collisionChecker.addCollider(wall.sprite);
 }
 function makeWalls(){
-    //Verticle walls
-    addWall(0, 0, 1, 30);
+    var wall = new createjs.Bitmap(queue.getResult("Wall"));
+	var sideWall = new createjs.Bitmap(queue.getResult("SideWall"));
+    
+    //Vertical walls
+    addWall(0, 0, 1, 30);    
     addWall(780, 0, 1, 30);
     
     //inner walls
-    addWall(95, 175, 2, 10);
-    addWall(665, 225, 2, 10);
+    addWall(90, 165, 2, 10);   
+    addWall(680, 250, 2, 10);
     
     //tall walls
-    addWall(210, 20, 3, 20);
-    addWall(530, 180, 3, 20);
+    addWall(200, 30, 3, 20);
+    addWall(550, 200, 3, 20);
     
     //Horizontal walls
-    addWall(0, 0, 40, 1);
-    addWall(0, 580, 40, 1);
+    addWall(0, 0, 40, 2);
+    addWall(0, 560, 40, 2);
 
     //Mini walls
-    addWall(20, 465, 5, 2);
-    addWall(680, 95, 5, 2);
+    addWall(20, 450, 5, 2);
+    addWall(680, 120, 5, 2);
     
     //Center walls
-    addWall(340, 145, 6, 3);
-    addWall(340, 395, 6, 3);
+    addWall(350, 150, 6, 3);
+    addWall(350, 400, 6, 3);
 }

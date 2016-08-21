@@ -19,9 +19,9 @@ function loadLevel1(){
     this.enemyArray.push(redEnemy1);
     collisionChecker.addEnemyCollider(redEnemy1.img.sprite);
     
-    locationX = [740, 740, 615];
-    locationY = [175, 450, 450];
-    var redEnemy2 = new enemy("Red", 615, 175, locationX, locationY);
+    locationX = [740, 740, 640];
+    locationY = [200, 465, 465];
+    var redEnemy2 = new enemy("Red", 640, 200, locationX, locationY);
     redEnemy2.Init();
     this.enemyArray.push(redEnemy2);
     collisionChecker.addEnemyCollider(redEnemy2.img.sprite);
@@ -34,9 +34,9 @@ function loadLevel1(){
     this.enemyArray.push(bluEnemy1);
     collisionChecker.addEnemyCollider(bluEnemy1.img.sprite);
     
-    locationX = [45, 45, 160];
-    locationY = [400, 125, 125];
-    var bluEnemy2 = new enemy("Blue", 160, 400, locationX, locationY);
+    locationX = [050, 050, 150];
+    locationY = [400, 110, 110];
+    var bluEnemy2 = new enemy("Blue", 150, 400, locationX, locationY);
     bluEnemy2.Init();
     this.enemyArray.push(bluEnemy2);
     collisionChecker.addEnemyCollider(bluEnemy2.img.sprite);
@@ -50,8 +50,25 @@ function loadLevel1(){
     collisionChecker.addEnemyCollider(purpEnemy2.img.sprite);
     //Repeat for each enemy
 }
+
+//TODO: move this logic to the player instead of the manager
 function update(){
     for(i = 0; i < this.enemyArray.length; i++){
-        this.enemyArray[i].Update();
+        var enemy = this.enemyArray[i];
+        if(enemy.color == "Red"){
+            if(movingDownPlayer1 || movingLeftPlayer1 || movingRightPlayer1 || movingUpPlayer1){
+                enemy.Update();
+            }
+        }
+        else if(enemy.color == "Blue"){
+            if(movingDownPlayer2 || movingLeftPlayer2 || movingRightPlayer2 || movingUpPlayer2){
+                enemy.Update();
+            }
+        }
+        else if(enemy.color == "Purple"){
+            if(movingDownPlayer1 || movingLeftPlayer1 || movingRightPlayer1 || movingUpPlayer1 || movingDownPlayer2 || movingLeftPlayer2 || movingRightPlayer2 || movingUpPlayer2){
+                enemy.Update();
+            }
+        }        
     }
 }
