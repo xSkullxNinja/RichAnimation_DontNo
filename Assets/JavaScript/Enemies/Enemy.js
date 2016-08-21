@@ -9,7 +9,7 @@ function enemy(color, startX, startY, locationsX, locationsY){
     this.locationsY = locationsY;
     this.locationsY.push(startY);
     this.nextLoc = 0;
-    this.speed = 10;
+    this.speed = 7;
     this.color = color;
     this.img;
 }
