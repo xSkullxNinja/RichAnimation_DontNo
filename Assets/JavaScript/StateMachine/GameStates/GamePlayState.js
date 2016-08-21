@@ -64,11 +64,11 @@ function loseGame(evt){
 }
 //TODO: remove score increase because collectables should do it for us. Although increasing score for winning could be good too.
 function WonLevel1(evt){
-    score += 1337;
+    score += 5000;
     collisionChecker.clearColliders();
     collisionChecker.clearEnemyColliders();
     stopEnemyMovement();
-    stateManager.change(evt, new GameOverState());
+    stateManager.change(evt, new WinState());
 }
 function level1Finished(){
     if(player1.shape.x > 690 && player1.shape.y> 490

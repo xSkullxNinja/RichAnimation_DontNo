@@ -92,6 +92,9 @@ function getManifest() {
 		{ 
 			src: "JavaScript/Scenes/LoadingLevelScene.js"
 		},
+        { 
+			src: "JavaScript/Scenes/WinScene.js"
+		},
 		// StateMachine
 		{ 
 			src: "JavaScript/StateMachine/StateManager.js"
@@ -113,6 +116,9 @@ function getManifest() {
 		},
 		{ 
 			src: "JavaScript/StateMachine/GameStates/LoadingLevelState.js"
+		},
+        { 
+			src: "JavaScript/StateMachine/GameStates/WinState.js"
 		},
 		// Sprites
 		{
@@ -206,6 +212,10 @@ function getManifest() {
 		{
 			src: "Images/Backgrounds/GameOverBackground.jpg",
 			id: "GameOverBackground"
+		},
+		{
+			src: "Images/Backgrounds/WinBackground.jpg",
+			id: "WinBackground"
 		},
 		{
 			src: "Images/Backgrounds/LevelLoad.jpg",
