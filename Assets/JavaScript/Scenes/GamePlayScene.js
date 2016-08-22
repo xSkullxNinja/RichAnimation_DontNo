@@ -83,22 +83,22 @@ function makeWalls(){
     addWall(780, 0, 1, 30);
     
     //inner walls
-    addWall(90, 165, 2, 10);   
-    addWall(680, 250, 2, 10);
+    addWall(95, 175, 2, 10);   
+    addWall(675, 225, 2, 10);
     
     //tall walls
-    addWall(200, 30, 3, 20);
-    addWall(550, 200, 3, 20);
+    addWall(210, 20, 3, 20);
+    addWall(530, 180, 3, 20);
     
     //Horizontal walls
-    addWall(0, 0, 40, 2);
-    addWall(0, 560, 40, 2);
+    addWall(0, 0, 40, 1);
+    addWall(0, 580, 40, 1);
 
     //Mini walls
-    addWall(20, 450, 5, 2);
-    addWall(680, 120, 5, 2);
+    addWall(20, 465, 5, 2);
+    addWall(680, 95, 5, 2);
     
     //Center walls
-    addWall(350, 150, 6, 3);
-    addWall(350, 400, 6, 3);
+    addWall(340, 145, 6, 3);
+    addWall(340, 395, 6, 3);
 }
