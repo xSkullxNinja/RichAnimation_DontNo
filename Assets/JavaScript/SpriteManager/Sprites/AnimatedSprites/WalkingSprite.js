@@ -1,19 +1,17 @@
-function WalkingSprite() {
-	Sprite.call(this);
-	this.sprite = getSprite(CHARACTER_SPRITES);
+function WalkingSprite(spriteId) {
+	Sprite.call(this);//CHARACTER_SPRITES
+	this.sprite = getSprite(spriteId);
 }
-WalkingSprite.prototype = Object.create(Sprite.prototype);
+WalkingSprite.prototype = Object.create(AnimatedSprite.prototype);
 WalkingSprite.prototype.constuctor = WalkingSprite;
 
 WalkingSprite.prototype.init = setupWalkingSprite;
 WalkingSprite.prototype.move = moveWalkingSprite;
-WalkingSprite.prototype.change = playWalkingSprite;
+WalkingSprite.prototype.play = playWalkingSprite;
 
-function setupWalkingSprite(xPos, yPos, position) {
+function setupWalkingSprite(xPos, yPos) {
     stage.addChild(this.sprite);
-    this.sprite.x = xPos;
-    this.sprite.y = yPos;
-    this.sprite.gotoAndPlay(position);
+    this.move(xPos, yPos);
 }
 function moveWalkingSprite(xPos, yPos) {
     this.sprite.x = xPos;

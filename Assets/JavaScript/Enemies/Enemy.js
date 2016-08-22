@@ -48,7 +48,16 @@ function enArrive(current, dest){
 //Prototyped Functions
 function EnemyInit(){
     //Create shape
-    this.img = new EnemySprite(this.color);
+    if(this.color === "Red"){
+        this.img = new EnemySprite(RED_ENEMY_SPRITES);
+    }
+    else if(this.color === "Blue"){
+        this.img = new EnemySprite(BLUE_ENEMY_SPRITES);
+    }
+    else if(this.color === "Purple"){
+        this.img = new EnemySprite(PURPLE_ENEMY_SPRITES);
+    }
+    // this.img = new EnemySprite(this.color);
     this.img.init(this.startX, this.startY);
     collisionChecker.addEnemyCollider(this.img.sprite);
 }

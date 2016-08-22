@@ -122,22 +122,34 @@ function getManifest() {
 		},
 		// Sprites
 		{
-			src: "JavaScript/Sprites/Sprite.js"
+			src: "JavaScript/SpriteManager/SpriteCreator.js"
 		},
 		{
-			src: "JavaScript/Sprites/SpriteCreator.js"
+			src: "JavaScript/SpriteManager/SpriteData.js"
 		},
 		{
-			src: "JavaScript/Sprites/SpriteData.js"
+			src: "JavaScript/SpriteManager/Sprites/Sprite.js"
 		},
 		{
-			src: "JavaScript/Sprites/CharacterSprite/WalkingSprite.js"
+			src: "JavaScript/SpriteManager/Sprites/AnimatedSprite.js"
 		},
 		{
-			src: "JavaScript/Sprites/CharacterSprite/BlockSprite.js"
+			src: "JavaScript/SpriteManager/Sprites/StaticSprite.js"
 		},
 		{
-			src: "JavaScript/Sprites/CharacterSprite/EnemySprite.js"
+			src: "JavaScript/SpriteManager/Sprites/AnimatedSprites/StarSprite.js"
+		},
+		{
+			src: "JavaScript/SpriteManager/Sprites/AnimatedSprites/WalkingSprite.js"
+		},
+		{
+			src: "JavaScript/SpriteManager/Sprites/StaticSprites/BlockSprite.js"
+		},
+		{
+			src: "JavaScript/SpriteManager/Sprites/StaticSprites/EnemySprite.js"
+		},
+		{
+			src: "JavaScript/SpriteManager/Sprites/StaticSprites/WallSprite.js"
 		},
 		// Buttons
 		{
@@ -185,17 +197,21 @@ function getManifest() {
 			src: "Images/SpriteSheets/sprites.png",
 			id: "characterSprite"
 		},
+		{
+			src: "Images/SpriteSheets/starSprite.png",
+			id: "starSprite"
+		},
 		{ 
-			src: "Images/RedEnemy.png",
+			src: "Images/Sprites/RedEnemy.png",
 			id: "redEnemySprite"
 		},
 		{ 
-			src: "Images/BlueEnemy.png",
-			id: "bluEnemySprite"
+			src: "Images/Sprites/BlueEnemy.png",
+			id: "blueEnemySprite"
 		},
 		{ 
-			src: "Images/PurpleEnemy.png",
-			id: "purEnemySprite"
+			src: "Images/Sprites/PurpleEnemy.png",
+			id: "purpleEnemySprite"
 		},
 		{
 			src: "Images/Backgrounds/MainMenuBackground.jpg",
@@ -223,7 +239,7 @@ function getManifest() {
 		},
 		{
 			src: "Images/Sprites/Wall.jpg",
-			id: "Wall"
+			id: "wallSprite"
 		},
 		{
 			src: "Images/Sprites/RedPlayer.jpg",

@@ -63,4 +63,5 @@ function loading(evt) {
 	canvasContext.stroke();
 	canvasContext.fill();
 }
+
 main();

@@ -1,3 +1,4 @@
+// Sprite Sheets
 function loadSpriteBlock() {
 	var blockSheet = new createjs.SpriteSheet({
         images: [queue.getResult("characterSprite")],
@@ -7,7 +8,6 @@ function loadSpriteBlock() {
 	var blocks = new createjs.Sprite(blockSheet);
 	return blocks;
 }
-	
 function loadSpriteCharacter() {
     var walkSheet = new createjs.SpriteSheet({
         images: [queue.getResult("characterSprite")],
@@ -29,7 +29,20 @@ function loadSpriteCharacter() {
     var walk = new createjs.Sprite(walkSheet);
 	return walk;
 }
+function loadSpriteStar() {
+	var starSheet = new createjs.SpriteSheet({
+        images: [queue.getResult("starSprite")],
+        frames: [[0,0,25,25,0,0,0],[25,0,25,25,0,0,0],[0,25,25,25,0,0,0],[26,25,25,25,0,0,0]],
+        animations: {
+            starSpin: [0, 3, "starSpin", .4],
+        }
+    });
 
+	var star = new createjs.Sprite(starSheet);
+	return star;
+}
+
+// Sprite Single Images
 function loadSpriteRedEnemy() {
     //Frames, x, y, width, height, 0, offsetX, offsetY
 	var enemySheet = new createjs.SpriteSheet({
@@ -41,9 +54,9 @@ function loadSpriteRedEnemy() {
 	return enemys;
 }
 
-function loadSpriteBluEnemy() {
+function loadSpriteBlueEnemy() {
 	var enemySheet = new createjs.SpriteSheet({
-        images: [queue.getResult("bluEnemySprite")],
+        images: [queue.getResult("blueEnemySprite")],
         frames: [[0,0,25,25,0,0,0]]
     });
 
@@ -51,12 +64,21 @@ function loadSpriteBluEnemy() {
 	return enemys;
 }
 
-function loadSpritePurEnemy() {
+function loadSpritePurpleEnemy() {
 	var enemySheet = new createjs.SpriteSheet({
-        images: [queue.getResult("purEnemySprite")],
+        images: [queue.getResult("purpleEnemySprite")],
         frames: [[0,0,25,25,0,0,0]]
     });
 
 	var enemys = new createjs.Sprite(enemySheet);
 	return enemys;
+}
+function loadSpriteWall() {
+	var wallSheet = new createjs.SpriteSheet({
+        images: [queue.getResult("wallSprite")],
+        frames: [[0,0,20,20,0,0,0]]
+    });
+
+	var wall = new createjs.Sprite(wallSheet);
+	return wall;
 }
