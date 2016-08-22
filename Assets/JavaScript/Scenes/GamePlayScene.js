@@ -8,6 +8,7 @@ var movingLeftPlayer2 = false;
 var movingRightPlayer2 = false;
 var movingUpPlayer2 = false; 
 var movingDownPlayer2 = false;
+var stars = [];
 
 function enterGamePlayScene(evt) {
 	loadBackground("GamePlayBackground");
@@ -17,27 +18,34 @@ function enterGamePlayScene(evt) {
     pauseText.x = 300;
     pauseText.y = 282;
     
-	muteButton.init(evt, 33, 534);	
 	collisionChecker.clearColliders();
     makeWalls();
+    
+    stars = [];
 
     var star = new StarSprite(STAR_SPRITES);
-    star.init(37.5, 517.5);
+    star.init(37.5, 502.5);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
+    stars.push(star);
 
     star = new StarSprite(STAR_SPRITES);
-    star.init(712.5, 32.5);
+    star.init(712.5, 47.5);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
+    stars.push(star);
 
     star = new StarSprite(STAR_SPRITES);
-    star.init(375, 275);
+    star.init(387.5, 287.5);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
+    stars.push(star);
+    
+    scoreText.init(365, 100, stage);
+    muteButton.init(evt, 33, 534);	
 
 	score = 0;
     numCollected = 0;
@@ -54,10 +62,6 @@ function pause(){
 }
 function runGamePlayScene(evt) {
     runGameTimer(evt);
-    //TODO: End the game properly
-	if(gameTimer >= 100) {
-		stateManager.change(evt, new GameOverState());
-	}
 }
 function addWall(xPos, yPos, scaleX, scaleY) {
     var wall = new WallSprite(WALL_SPRITES);

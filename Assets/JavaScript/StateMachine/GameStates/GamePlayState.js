@@ -10,7 +10,7 @@ GamePlayState.prototype.exit = exitGamePlayState;
 
 var player1, player2;
 function enterGamePlayState(evt) {
-	enterGamePlayScene(evt);
+    enterGamePlayScene(evt);
 	resetGameTimer();
 	player1 = new Player("Red");
 	player1.init(evt, 20, 40);
@@ -44,6 +44,8 @@ function runGamePlayState(evt) {
 		enemyManager.update();
 		collisionChecker.pushBackIfColliding(player1.shape);
 		collisionChecker.pushBackIfColliding(player2.shape);
+        checkStarCollisions();
+        scoreText.change(score);
         if(collisionChecker.isCollidingWithEnemy(player1.shape, 0.5)){
             loseGame(evt);
         }
@@ -148,6 +150,23 @@ function stopEnemyMovement(){
     stopPlayer1Left();
     stopPlayer1Right();
 }
+
+//TO DO: Move to CollisionChecker
+function checkStarCollisions(){
+    var toRemove = [];
+    for(var i = 0; i < stars.length; i++){
+        var redCollision = ndgmr.checkPixelCollision(player1.shape, stars[i].sprite, 0);
+        var blueCollision = ndgmr.checkPixelCollision(player2.shape, stars[i].sprite, 0);
+        if(redCollision || blueCollision){
+            toRemove.push(i);
+            increaseScore(stars[i].sprite);
+        }
+    }
+    for(var i = 0; i < toRemove.length; i++){
+        stars.splice(toRemove[i] - i, 1);
+    }
+}
+
 function increaseScore(collectible){
     //Add removing the collectible from the collision array as well
     stage.removeChild(collectible);
