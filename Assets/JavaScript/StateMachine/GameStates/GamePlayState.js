@@ -41,10 +41,11 @@ function enterGamePlayState(evt) {
 function runGamePlayState(evt) {  
     if(!paused){
 		runGamePlayScene(evt);
-		enemyManager.update();
-		collisionChecker.pushBackIfColliding(player1.shape);
-		collisionChecker.pushBackIfColliding(player2.shape);
+		collisionChecker.pushBackIfColliding(player1.shape, 1);
+		collisionChecker.pushBackIfColliding(player2.shape, 2);
         checkStarCollisions();
+        enemyManager.update();
+        resetCancels();
         scoreText.change(score);
         if(collisionChecker.isCollidingWithEnemy(player1.shape, 0.5)){
             loseGame(evt);
@@ -149,6 +150,13 @@ function stopEnemyMovement(){
     stopPlayer1Down();
     stopPlayer1Left();
     stopPlayer1Right();
+}
+
+function resetCancels(){
+    cancelPlayer1Horizontal = false;
+    cancelPlayer1Vertical = false;
+    cancelPlayer2Horizontal = false;
+    cancelPlayer2Vertical = false;
 }
 
 //TO DO: Move to CollisionChecker

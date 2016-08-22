@@ -64,7 +64,7 @@ var collisionChecker = {
 		}
 		return false;
 	},
-	pushBackIfColliding: function (bitmapChecking) {
+	pushBackIfColliding: function (bitmapChecking, player) {
 		var collisions = collisionChecker.collisionPoints(bitmapChecking);
 		for (i = 0; i < collisions.length; ++i) {
 			var collision = collisions[i];
@@ -75,6 +75,12 @@ var collisionChecker = {
 						movement = -movement;
 					}
 					bitmapChecking.y += movement;
+                    if(player == 1){
+                        cancelPlayer1Vertical = true;
+                    }
+                    else if(player == 2){
+                        cancelPlayer2Vertical = true;
+                    }
 				}
 				else {
 					var movement = collision.intersection.width;
@@ -82,6 +88,12 @@ var collisionChecker = {
 						movement = -movement;
 					}
 					bitmapChecking.x += movement;
+                    if(player == 1){
+                        cancelPlayer1Horizontal = true;
+                    }
+                    else if(player == 2){
+                        cancelPlayer2Horizontal = true;
+                    }
 				}
 			}
 		}		

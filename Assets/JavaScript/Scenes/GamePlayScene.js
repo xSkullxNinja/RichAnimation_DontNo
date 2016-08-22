@@ -8,6 +8,10 @@ var movingLeftPlayer2 = false;
 var movingRightPlayer2 = false;
 var movingUpPlayer2 = false; 
 var movingDownPlayer2 = false;
+var cancelPlayer1Vertical = false;
+var cancelPlayer1Horizontal = false;
+var cancelPlayer2Vertical = false;
+var cancelPlayer2Horizontal = false;
 var stars = [];
 
 function enterGamePlayScene(evt) {

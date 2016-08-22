@@ -56,17 +56,17 @@ function update(){
     for(i = 0; i < this.enemyArray.length; i++){
         var enemy = this.enemyArray[i];
         if(enemy.color == "Red"){
-            if(movingDownPlayer1 || movingLeftPlayer1 || movingRightPlayer1 || movingUpPlayer1){
+            if(((movingLeftPlayer1 || movingRightPlayer1) && !cancelPlayer1Horizontal) || ((movingUpPlayer1 || movingDownPlayer1) && !cancelPlayer1Vertical)){
                 enemy.Update();
             }
         }
         else if(enemy.color == "Blue"){
-            if(movingDownPlayer2 || movingLeftPlayer2 || movingRightPlayer2 || movingUpPlayer2){
+            if(((movingLeftPlayer2 || movingRightPlayer2) && !cancelPlayer2Horizontal) || ((movingUpPlayer2 || movingDownPlayer2) && !cancelPlayer2Vertical)){
                 enemy.Update();
             }
         }
         else if(enemy.color == "Purple"){
-            if(movingDownPlayer1 || movingLeftPlayer1 || movingRightPlayer1 || movingUpPlayer1 || movingDownPlayer2 || movingLeftPlayer2 || movingRightPlayer2 || movingUpPlayer2){
+            if(((movingLeftPlayer1 || movingRightPlayer1) && !cancelPlayer1Horizontal) || ((movingUpPlayer1 || movingDownPlayer1) && !cancelPlayer1Vertical) || ((movingLeftPlayer2 || movingRightPlayer2) && !cancelPlayer2Horizontal) || ((movingUpPlayer2 || movingDownPlayer2) && !cancelPlayer2Vertical)){
                 enemy.Update();
             }
         }        
