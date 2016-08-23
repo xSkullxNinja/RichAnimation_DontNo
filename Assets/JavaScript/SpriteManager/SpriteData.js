@@ -42,6 +42,32 @@ function loadSpriteStar() {
 	return star;
 }
 
+function bluePlayerSprite() {
+	var playerSheet = new createjs.SpriteSheet({
+		images: [queue.getResult("bluePlayer")],
+		frames: [[66,0,32,49], [0,0,32,52], [33,0,32,52]],
+		animations: {
+			stand: [0, 0, "stand"],
+			walk: [1, 2, "walk", .07],
+		}
+	})
+	var bluePlayer = new createjs.Sprite(playerSheet);
+	return bluePlayer;
+}
+
+function redPlayerSprite() {
+	var playerSheet = new createjs.SpriteSheet({
+		images: [queue.getResult("redPlayer")],
+		frames: [[66,0,32,49], [0,0,32,52], [33,0,32,52]],
+		animations: {
+			stand: [0, 0, "stand"],
+			walk: [1, 2, "walk", .07],
+		}
+	})
+	var redPlayer = new createjs.Sprite(playerSheet);
+	return redPlayer;
+}
+
 // Sprite Single Images
 function loadSpriteRedEnemy() {
     //Frames, x, y, width, height, 0, offsetX, offsetY

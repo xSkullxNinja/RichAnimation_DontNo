@@ -118,27 +118,35 @@ function movePlayer2Up() {
 }
 function stopPlayer1Right() {
 	movingRightPlayer1 = false;
+	player1.stopPlayer();
 }
 function stopPlayer1Left() {
 	movingLeftPlayer1 = false;
+	player1.stopPlayer();
 }
 function stopPlayer1Down() {
 	movingDownPlayer1 = false;
+	player1.stopPlayer();
 }
 function stopPlayer1Up() {
 	movingUpPlayer1 = false;
+	player1.stopPlayer();
 }
 function stopPlayer2Right() {
 	movingRightPlayer2 = false;
+	player2.stopPlayer();
 }
 function stopPlayer2Left() {
 	movingLeftPlayer2 = false;
+	player2.stopPlayer();
 }
 function stopPlayer2Down() {
 	movingDownPlayer2 = false;
+	player2.stopPlayer();
 }
 function stopPlayer2Up() {
 	movingUpPlayer2 = false;
+	player2.stopPlayer();
 }
 function stopEnemyMovement(){
     stopPlayer2Left();
