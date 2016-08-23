@@ -13,9 +13,9 @@ function enterGamePlayState(evt) {
     enterGamePlayScene(evt);
 	resetGameTimer();
 	player1 = new Player("Red");
-	player1.init(evt, 20, 40);
+	player1.init(evt, 20, 20);
 	player2 = new Player("Blue");
-	player2.init(evt, 750, 550);
+	player2.init(evt, 730, 530);
 	assignKeyPressFunction(keyCodes.LETTER_A, movePlayer1Left);
 	assignKeyPressFunction(keyCodes.LETTER_S, movePlayer1Down);
 	assignKeyPressFunction(keyCodes.LETTER_D, movePlayer1Right);
