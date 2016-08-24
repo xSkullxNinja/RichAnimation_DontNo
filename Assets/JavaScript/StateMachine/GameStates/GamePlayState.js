@@ -1,3 +1,5 @@
+var numLevels = 2;
+
 function GamePlayState() {
 	State.call(this);
 }
@@ -12,6 +14,10 @@ var player1, player2;
 function enterGamePlayState(evt) {
     enterGamePlayScene(evt);
 	resetGameTimer();
+    addPlayerAndKeys(evt);
+}
+
+function addPlayerAndKeys(evt){
 	player1 = new Player("Red");
 	player1.init(evt, 20, 20);
 	player2 = new Player("Blue");
@@ -35,7 +41,6 @@ function enterGamePlayState(evt) {
 	assignKeyUpFunction(keyCodes.KEYCODE_RIGHT, stopPlayer2Right);
 	assignKeyUpFunction(keyCodes.KEYCODE_UP, stopPlayer2Up);
 	xPos = yPos = 400;
-    enemyManager.loadLevel1();
 }
 
 function runGamePlayState(evt) {  
@@ -53,9 +58,15 @@ function runGamePlayState(evt) {
         if(collisionChecker.isCollidingWithEnemy(player2.shape, 0.5)){
             loseGame(evt);
         }
-        
-        if(level1Finished()){
-            WonLevel1(evt);
+        if(level < numLevels){
+            if(levelFinished()){
+                WonLevel(evt);
+            }
+        }
+        else{
+            if(levelFinished()){
+                WonFinalLevel(evt);
+            }
         }
     }
 }
@@ -66,20 +77,39 @@ function loseGame(evt){
     stateManager.change(evt, new GameOverState());
 }
 //TODO: remove score increase because collectables should do it for us. Although increasing score for winning could be good too.
-function WonLevel1(evt){
+function WonLevel(evt){
     score += 5000;
     collisionChecker.clearColliders();
     collisionChecker.clearEnemyColliders();
     stopEnemyMovement();
+    level++;
+    stateManager.change(evt, new LoadingLevelState());
+//    stateManager.change(evt, new WinState());
+}
+function WonFinalLevel(evt){
+    score += 5000;
+    collisionChecker.clearColliders();
+    collisionChecker.clearEnemyColliders();
+    stopEnemyMovement();
+    level = 1;
     stateManager.change(evt, new WinState());
 }
-function level1Finished(){
-    if(player1.shape.x > 690 && player1.shape.y> 490
+function levelFinished(){
+    if(player1.shape.x > 690 && player1.shape.y > 490
       && player2.shape.x < 100 && player2.shape.y < 125){
         return true;
     }
     return false;
 }
+
+function loadLevel2(){
+    stage.removeAllChildren();
+    gameplayLoadBasics();
+    gameplayLoadLevelVincent();
+    addPlayerAndKeys();
+    enemyManager.loadLevelVincent();
+}
+
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();
 	clearAllKeyCodes();
