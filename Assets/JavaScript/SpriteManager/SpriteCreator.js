@@ -5,6 +5,7 @@ var BLUE_ENEMY_SPRITES		= 3;
 var PURPLE_ENEMY_SPRITES	= 4;
 var WALL_SPRITES			= 5;
 var STAR_SPRITES			= 6;
+var GOAL_SPRITES			= 7;
 
 var NUM_SPRITES = 7;
 
@@ -18,6 +19,7 @@ function spriteInit() {
     var purpleEnemySprite = loadSpritePurpleEnemy();
     var wallSprite = loadSpriteWall();
     var starSprite = loadSpriteStar();
+	var goalSprite = loadGoalSprite();
 	
 	spriteList[BLOCK_SPRITES] = blockSprite;
 	spriteList[CHARACTER_SPRITES] = characterSprite;
@@ -26,6 +28,7 @@ function spriteInit() {
 	spriteList[PURPLE_ENEMY_SPRITES] = purpleEnemySprite;
 	spriteList[WALL_SPRITES] = wallSprite;
 	spriteList[STAR_SPRITES] = starSprite;
+	spriteList[GOAL_SPRITES] = goalSprite;
 }
 function getSprite(spriteValue) {
 	var spriteRequest = spriteList[spriteValue].clone();

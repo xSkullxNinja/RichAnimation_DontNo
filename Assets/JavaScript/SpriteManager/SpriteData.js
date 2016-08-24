@@ -48,7 +48,7 @@ function bluePlayerSprite() {
 		frames: [[66,0,32,49], [0,0,32,52], [33,0,32,52]],
 		animations: {
 			stand: [0, 0, "stand"],
-			walk: [1, 2, "walk", .07],
+			walk: [1, 2, "walk", .2],
 		}
 	})
 	var bluePlayer = new createjs.Sprite(playerSheet);
@@ -61,11 +61,25 @@ function redPlayerSprite() {
 		frames: [[66,0,32,49], [0,0,32,52], [33,0,32,52]],
 		animations: {
 			stand: [0, 0, "stand"],
-			walk: [1, 2, "walk", .07],
+			walk: [1, 2, "walk", .2],
 		}
 	})
 	var redPlayer = new createjs.Sprite(playerSheet);
 	return redPlayer;
+}
+
+function loadGoalSprite() {
+	var goalSheet = new createjs.SpriteSheet({
+		images: [queue.getResult("goals")],
+		frames: [[0,0,52,52], [0,53,52,52], [53,0,52,52]],
+		animations: {
+			reached: [0,0, "reached"],
+			blue: [1,1, "blue"],
+			red: [2,2, "red"]
+		}
+	})
+	var goal = new createjs.Sprite(goalSheet);
+	return goal;
 }
 
 // Sprite Single Images

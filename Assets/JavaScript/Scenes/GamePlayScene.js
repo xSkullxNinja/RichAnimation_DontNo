@@ -47,6 +47,14 @@ function enterGamePlayScene(evt) {
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
+	
+	redGoal = new GoalSprite(GOAL_SPRITES);
+	redGoal.init(725, 530);
+	redGoal.play("red");
+	
+	blueGoal = new GoalSprite(GOAL_SPRITES);
+	blueGoal.init(20, 20);
+	blueGoal.play("blue");
     
     scoreText.init(365, 100, stage);
     muteButton.init(evt, 33, 534);	

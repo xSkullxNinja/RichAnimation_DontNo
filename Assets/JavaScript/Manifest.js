@@ -151,6 +151,9 @@ function getManifest() {
 		{
 			src: "JavaScript/SpriteManager/Sprites/StaticSprites/WallSprite.js"
 		},
+		{
+			src: "JavaScript/SpriteManager/Sprites/AnimatedSprites/GoalSprite.js"	
+		},
 		// Buttons
 		{
 			src: "JavaScript/Buttons/Button.js"
@@ -208,6 +211,10 @@ function getManifest() {
 		{
 			src: "Images/SpriteSheets/redPlayer.png",
 			id: "redPlayer"
+		},
+		{
+			src: "Images/SpriteSheets/goals.png",
+			id: "goals"
 		},
 		// Sprites
 		{ 

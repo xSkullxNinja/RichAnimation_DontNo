@@ -13,9 +13,10 @@ function enterGamePlayState(evt) {
     enterGamePlayScene(evt);
 	resetGameTimer();
 	player1 = new Player("Red");
-	player1.init(evt, 20, 40);
+	player1.init(evt, 30, 20);
 	player2 = new Player("Blue");
-	player2.init(evt, 750, 550);
+	player2.init(evt, 735, 530);
+	
 	assignKeyPressFunction(keyCodes.LETTER_A, movePlayer1Left);
 	assignKeyPressFunction(keyCodes.LETTER_S, movePlayer1Down);
 	assignKeyPressFunction(keyCodes.LETTER_D, movePlayer1Right);
@@ -74,11 +75,26 @@ function WonLevel1(evt){
     stateManager.change(evt, new WinState());
 }
 function level1Finished(){
-    if(player1.shape.x > 690 && player1.shape.y> 490
-      && player2.shape.x < 100 && player2.shape.y < 125){
-        return true;
-    }
-    return false;
+    return collidingGoals();
+}
+function collidingGoals() {
+	var redcollision = ndgmr.checkRectCollision(player1.shape, redGoal.sprite);
+	var blueCollision = ndgmr.checkRectCollision(player2.shape, blueGoal.sprite);
+	var redColliding = redcollision != null;
+	var blueColliding = blueCollision != null;
+	if (redColliding) {
+		redGoal.play("reached");
+	}
+	else {
+		redGoal.play("red");	
+	}
+	if (blueColliding) {
+		blueGoal.play("reached");
+	}
+	else {
+		blueGoal.play("blue");
+	}
+	return blueColliding && redColliding
 }
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();
