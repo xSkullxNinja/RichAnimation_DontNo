@@ -12,6 +12,11 @@ var player1, player2;
 function enterGamePlayState(evt) {
     enterGamePlayScene(evt);
 	resetGameTimer();
+    addPlayerAndKeys(evt);
+    enemyManager.loadLevel1();
+}
+
+function addPlayerAndKeys(evt){
 	player1 = new Player("Red");
 	player1.init(evt, 20, 40);
 	player2 = new Player("Blue");
@@ -35,7 +40,6 @@ function enterGamePlayState(evt) {
 	assignKeyUpFunction(keyCodes.KEYCODE_RIGHT, stopPlayer2Right);
 	assignKeyUpFunction(keyCodes.KEYCODE_UP, stopPlayer2Up);
 	xPos = yPos = 400;
-    enemyManager.loadLevel1();
 }
 
 function runGamePlayState(evt) {  
@@ -71,7 +75,8 @@ function WonLevel1(evt){
     collisionChecker.clearColliders();
     collisionChecker.clearEnemyColliders();
     stopEnemyMovement();
-    stateManager.change(evt, new WinState());
+    loadLevel2();
+//    stateManager.change(evt, new WinState());
 }
 function level1Finished(){
     if(player1.shape.x > 690 && player1.shape.y> 490
@@ -80,6 +85,15 @@ function level1Finished(){
     }
     return false;
 }
+
+function loadLevel2(){
+    stage.removeAllChildren();
+    gameplayLoadBasics();
+    gameplayLoadLevelVincent();
+    addPlayerAndKeys();
+    enemyManager.loadLevelVincent();
+}
+
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();
 	clearAllKeyCodes();
