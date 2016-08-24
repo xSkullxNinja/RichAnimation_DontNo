@@ -1,3 +1,4 @@
+var level = 1;
 function beginTween(evt, myTweener) {
 	var myTween = createjs.Tween.get(myTweener,{loop:false})
         .wait(0)
@@ -16,7 +17,7 @@ function enterLoadingLevelScene(evt) {
 
 	var tweenText = new TweenText();
 	tweenText.init(90, 75, myTweener);
-	tweenText.change(1);
+	tweenText.change(level);
 
 	stage.addChild(myTweener);
 	beginTween(evt, myTweener);

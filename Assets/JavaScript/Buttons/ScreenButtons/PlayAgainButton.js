@@ -21,6 +21,10 @@ function setupPlayAgainButton(evt, xPos, yPos) {
 	this.buttonSprite.gotoAndPlay("playAgainUp");
 }
 function clickedPlayAgainButton(evt) {
+    while(numCollected > 0){
+        score -= (500 * numCollected);
+        numCollected--;
+    }
 	stateManager.change(evt, new LoadingLevelState());
 }
 function mouseOverPlayAgainButton(evt) {

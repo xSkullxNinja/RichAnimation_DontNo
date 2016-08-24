@@ -1,3 +1,5 @@
+var numLevels = 2;
+
 function GamePlayState() {
 	State.call(this);
 }
@@ -12,10 +14,17 @@ var player1, player2;
 function enterGamePlayState(evt) {
     enterGamePlayScene(evt);
 	resetGameTimer();
+    addPlayerAndKeys(evt);
+}
+
+function addPlayerAndKeys(evt){
 	player1 = new Player("Red");
 	player1.init(evt, 30, 20);
 	player2 = new Player("Blue");
 	player2.init(evt, 735, 530);
+	player1.init(evt, 20, 20);
+	player2 = new Player("Blue");
+	player2.init(evt, 730, 530);
 	
 	assignKeyPressFunction(keyCodes.LETTER_A, movePlayer1Left);
 	assignKeyPressFunction(keyCodes.LETTER_S, movePlayer1Down);
@@ -36,7 +45,6 @@ function enterGamePlayState(evt) {
 	assignKeyUpFunction(keyCodes.KEYCODE_RIGHT, stopPlayer2Right);
 	assignKeyUpFunction(keyCodes.KEYCODE_UP, stopPlayer2Up);
 	xPos = yPos = 400;
-    enemyManager.loadLevel1();
 }
 
 function runGamePlayState(evt) {  
@@ -54,9 +62,15 @@ function runGamePlayState(evt) {
         if(collisionChecker.isCollidingWithEnemy(player2.shape, 0.5)){
             loseGame(evt);
         }
-        
-        if(level1Finished()){
-            WonLevel1(evt);
+        if(level < numLevels){
+            if(levelFinished()){
+                WonLevel(evt);
+            }
+        }
+        else{
+            if(levelFinished()){
+                WonFinalLevel(evt);
+            }
         }
     }
 }
@@ -67,11 +81,21 @@ function loseGame(evt){
     stateManager.change(evt, new GameOverState());
 }
 //TODO: remove score increase because collectables should do it for us. Although increasing score for winning could be good too.
-function WonLevel1(evt){
+function WonLevel(evt){
     score += 5000;
     collisionChecker.clearColliders();
     collisionChecker.clearEnemyColliders();
     stopEnemyMovement();
+    level++;
+    stateManager.change(evt, new LoadingLevelState());
+//    stateManager.change(evt, new WinState());
+}
+function WonFinalLevel(evt){
+    score += 5000;
+    collisionChecker.clearColliders();
+    collisionChecker.clearEnemyColliders();
+    stopEnemyMovement();
+    level = 1;
     stateManager.change(evt, new WinState());
 }
 function level1Finished(){
@@ -96,6 +120,15 @@ function collidingGoals() {
 	}
 	return blueColliding && redColliding
 }
+
+function loadLevel2(){
+    stage.removeAllChildren();
+    gameplayLoadBasics();
+    gameplayLoadLevelVincent();
+    addPlayerAndKeys();
+    enemyManager.loadLevelVincent();
+}
+
 function exitGamePlayState(evt) {
 	stage.removeAllChildren();
 	clearAllKeyCodes();

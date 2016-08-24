@@ -247,7 +247,7 @@ function getManifest() {
 			id: "MainMenuBackground"
 		},
 		{
-			src: "Images/Backgrounds/InstructionBackground.jpg",
+			src: "Images/Backgrounds/InstructionBackground.png",
 			id: "InstructionBackground"
 		},
 		{
