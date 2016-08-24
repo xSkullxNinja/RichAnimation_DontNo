@@ -18,9 +18,9 @@ function enterGamePlayState(evt) {
 
 function addPlayerAndKeys(evt){
 	player1 = new Player("Red");
-	player1.init(evt, 20, 40);
+	player1.init(evt, 20, 20);
 	player2 = new Player("Blue");
-	player2.init(evt, 750, 550);
+	player2.init(evt, 730, 530);
 	assignKeyPressFunction(keyCodes.LETTER_A, movePlayer1Left);
 	assignKeyPressFunction(keyCodes.LETTER_S, movePlayer1Down);
 	assignKeyPressFunction(keyCodes.LETTER_D, movePlayer1Right);
@@ -132,27 +132,35 @@ function movePlayer2Up() {
 }
 function stopPlayer1Right() {
 	movingRightPlayer1 = false;
+	player1.stopPlayer();
 }
 function stopPlayer1Left() {
 	movingLeftPlayer1 = false;
+	player1.stopPlayer();
 }
 function stopPlayer1Down() {
 	movingDownPlayer1 = false;
+	player1.stopPlayer();
 }
 function stopPlayer1Up() {
 	movingUpPlayer1 = false;
+	player1.stopPlayer();
 }
 function stopPlayer2Right() {
 	movingRightPlayer2 = false;
+	player2.stopPlayer();
 }
 function stopPlayer2Left() {
 	movingLeftPlayer2 = false;
+	player2.stopPlayer();
 }
 function stopPlayer2Down() {
 	movingDownPlayer2 = false;
+	player2.stopPlayer();
 }
 function stopPlayer2Up() {
 	movingUpPlayer2 = false;
+	player2.stopPlayer();
 }
 function stopEnemyMovement(){
     stopPlayer2Left();

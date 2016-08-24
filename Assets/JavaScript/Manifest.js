@@ -188,7 +188,7 @@ function getManifest() {
 			src: "Sounds/backgroundMemories.mp3",
 			id: "backgroundMusicMemories"
 		},
-		// Images
+		// Sprite Sheets
 		{ 
 			src: "Images/SpriteSheets/buttons.png",
 			id: "buttonSprites"
@@ -201,6 +201,15 @@ function getManifest() {
 			src: "Images/SpriteSheets/starSprite.png",
 			id: "starSprite"
 		},
+		{
+			src: "Images/SpriteSheets/bluePlayer.png",
+			id: "bluePlayer"
+		},
+		{
+			src: "Images/SpriteSheets/redPlayer.png",
+			id: "redPlayer"
+		},
+		// Sprites
 		{ 
 			src: "Images/Sprites/RedEnemy.png",
 			id: "redEnemySprite"
@@ -213,6 +222,19 @@ function getManifest() {
 			src: "Images/Sprites/PurpleEnemy.png",
 			id: "purpleEnemySprite"
 		},
+		{
+			src: "Images/Sprites/RedPlayer.jpg",
+			id: "RedPlayer"
+		},
+		{
+			src: "Images/Sprites/BluePlayer.jpg",
+			id: "BluePlayer"
+		},
+		{
+			src: "Images/Sprites/Wall.jpg",
+			id: "wallSprite"
+		},
+		//Backgrounds
 		{
 			src: "Images/Backgrounds/MainMenuBackground.jpg",
 			id: "MainMenuBackground"
@@ -236,18 +258,6 @@ function getManifest() {
 		{
 			src: "Images/Backgrounds/LevelLoad.jpg",
 			id: "LevelLoad"
-		},
-		{
-			src: "Images/Sprites/Wall.jpg",
-			id: "wallSprite"
-		},
-		{
-			src: "Images/Sprites/RedPlayer.jpg",
-			id: "RedPlayer"
-		},
-		{
-			src: "Images/Sprites/BluePlayer.jpg",
-			id: "BluePlayer"
 		}
 	];
 }

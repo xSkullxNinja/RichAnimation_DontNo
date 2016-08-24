@@ -36,21 +36,21 @@ function gameplayLoadLevel1(){
     stars = [];
 
     var star = new StarSprite(STAR_SPRITES);
-    star.init(37.5, 502.5);
+    star.init(37.5, 517.5);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
 
     star = new StarSprite(STAR_SPRITES);
-    star.init(712.5, 47.5);
+    star.init(712.5, 32.5);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
 
     star = new StarSprite(STAR_SPRITES);
-    star.init(387.5, 287.5);
+    star.init(375, 275);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
@@ -113,12 +113,16 @@ function makeLevel1Walls(){
     
     //inner walls
     addWall(95, 175, 2, 10);   
-    addWall(675, 225, 2, 10);
-    
+    addWall(665, 225, 2, 10);
+
     //tall walls
     addWall(210, 20, 3, 20);
     addWall(530, 180, 3, 20);
     
+    //Horizontal walls
+    addWall(0, 0, 40, 1);
+    addWall(0, 580, 40, 1);
+
     //Mini walls
     addWall(20, 465, 5, 2);
     addWall(680, 95, 5, 2);
