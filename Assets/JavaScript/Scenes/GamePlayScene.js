@@ -17,22 +17,26 @@ var stars = [];
 function enterGamePlayScene(evt) {
     gameplayLoadBasics(evt);
     collisionChecker.clearColliders();
-    gameplayLoadLevel1();
-    
-	score = 0;
+    if(level == 1){
+        gameplayLoadLevel1(evt);
+    }
+    else if(level == 2){
+        gameplayLoadLevelVincent(evt);
+    }
+    else if(level == 3){
+        
+    }
     numCollected = 0;
 }
 function gameplayLoadBasics(evt){
 	loadBackground("GamePlayBackground");
-	var muteButton = getButton(MUTE_BUTTON);
 	scoreText = new ScoreText();
     pauseText = new createjs.Text("Paused" ,"36px Arial", "#ffffff");
     pauseText.x = 300;
     pauseText.y = 282;
-    scoreText.init(365, 100, stage);
-    muteButton.init(evt, 33, 534);
 }
-function gameplayLoadLevel1(){
+function gameplayLoadLevel1(evt){
+    score = 0;
     stars = [];
 
     var star = new StarSprite(STAR_SPRITES);
@@ -57,8 +61,10 @@ function gameplayLoadLevel1(){
     stars.push(star);
     
     makeLevel1Walls();
+    enemyManager.loadLevel1();
+    loadTopUI(evt);
 }
-function gameplayLoadLevelVincent(){
+function gameplayLoadLevelVincent(evt){
     stars = [];
 
     var star = new StarSprite(STAR_SPRITES);
@@ -83,6 +89,13 @@ function gameplayLoadLevelVincent(){
     stars.push(star);
     
     makeLevel2Walls();
+    enemyManager.loadLevelVincent();
+    loadTopUI(evt);
+}
+function loadTopUI(evt){
+    var muteButton = getButton(MUTE_BUTTON);
+    scoreText.init(365, 100, stage);
+    muteButton.init(evt, 33, 534);
 }
 function pause(){
     if(paused){

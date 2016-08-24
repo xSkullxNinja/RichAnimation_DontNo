@@ -1,3 +1,5 @@
+var numLevels = 2;
+
 function GamePlayState() {
 	State.call(this);
 }
@@ -13,7 +15,6 @@ function enterGamePlayState(evt) {
     enterGamePlayScene(evt);
 	resetGameTimer();
     addPlayerAndKeys(evt);
-    enemyManager.loadLevel1();
 }
 
 function addPlayerAndKeys(evt){
@@ -57,9 +58,15 @@ function runGamePlayState(evt) {
         if(collisionChecker.isCollidingWithEnemy(player2.shape, 0.5)){
             loseGame(evt);
         }
-        
-        if(level1Finished()){
-            WonLevel1(evt);
+        if(level < numLevels){
+            if(levelFinished()){
+                WonLevel(evt);
+            }
+        }
+        else{
+            if(levelFinished()){
+                WonFinalLevel(evt);
+            }
         }
     }
 }
@@ -70,16 +77,25 @@ function loseGame(evt){
     stateManager.change(evt, new GameOverState());
 }
 //TODO: remove score increase because collectables should do it for us. Although increasing score for winning could be good too.
-function WonLevel1(evt){
+function WonLevel(evt){
     score += 5000;
     collisionChecker.clearColliders();
     collisionChecker.clearEnemyColliders();
     stopEnemyMovement();
-    loadLevel2();
+    level++;
+    stateManager.change(evt, new LoadingLevelState());
 //    stateManager.change(evt, new WinState());
 }
-function level1Finished(){
-    if(player1.shape.x > 690 && player1.shape.y> 490
+function WonFinalLevel(evt){
+    score += 5000;
+    collisionChecker.clearColliders();
+    collisionChecker.clearEnemyColliders();
+    stopEnemyMovement();
+    level = 1;
+    stateManager.change(evt, new WinState());
+}
+function levelFinished(){
+    if(player1.shape.x > 690 && player1.shape.y > 490
       && player2.shape.x < 100 && player2.shape.y < 125){
         return true;
     }
