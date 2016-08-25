@@ -101,19 +101,19 @@ function runEasterEgg(){
         }
         frame++;
     }
-    else if(frame < 12){
-        if(player1XGreater){
-            player1.shape.x += 4;
-            player2.shape.x -= 4;
-        }
-        else{
-            player1.shape.x -= 4;
-            player2.shape.x += 4;
-        }
-        frame++;
-    }
     else if(frame < 14){
         if(player1XGreater){
+            player1.shape.x += 4;
+            player2.shape.x -= 4;
+        }
+        else{
+            player1.shape.x -= 4;
+            player2.shape.x += 4;
+        }
+        frame++;
+    }
+    else if(frame < 18){
+        if(player1XGreater){
             player1.shape.x -= 4;
             player2.shape.x += 4;
         }
@@ -123,7 +123,7 @@ function runEasterEgg(){
         }
         frame++;
     }
-    else if(frame < 19){
+    else if(frame < 23){
         if(player1YGreater){
             player1.shape.y -= 4;
             player2.shape.y += 4;
@@ -134,7 +134,7 @@ function runEasterEgg(){
         }
         frame++;
     }
-    else if(frame < 26){
+    else if(frame < 32){
         if(player1YGreater){
             player1.shape.y += 4;
             player2.shape.y -= 4;
@@ -145,7 +145,7 @@ function runEasterEgg(){
         }
         frame++;
     }
-    else if(frame < 28){
+    else if(frame < 36){
         if(player1YGreater){
             player1.shape.y -= 4;
             player2.shape.y += 4;

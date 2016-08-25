@@ -72,11 +72,6 @@ function loadScoreStars(){
 }
 
 function gameplayLoadLevel1(evt){
-	player1 = new Player("Red");
-	player1.init(evt, 30, 20);
-	player2 = new Player("Blue");
-	player2.init(evt, 735, 530);
-
     stars = [];
 
     var star = new StarSprite(STAR_SPRITES);
@@ -108,17 +103,16 @@ function gameplayLoadLevel1(evt){
 	blueGoal.init(20, 20);
 	blueGoal.play("blue");
     
+    loadScoreStars();
     makeLevel1Walls();
     enemyManager.loadLevel1();
+    player1 = new Player("Red");
+	player1.init(evt, 30, 20);
+	player2 = new Player("Blue");
+	player2.init(evt, 735, 530);
     loadTopUI(evt);
-    loadScoreStars();
 }
 function gameplayLoadLevel2(evt){
-	player1 = new Player("Red");
-	player1.init(evt, 350, 300);
-	player2 = new Player("Blue");
-	player2.init(evt, 450, 300);
-
     stars = [];
     
     var star = new StarSprite(STAR_SPRITES);
@@ -150,18 +144,17 @@ function gameplayLoadLevel2(evt){
 	blueGoal.init(350, 300);
 	blueGoal.play("blue");
     
+    loadScoreStars();
     makeLevel2Walls();
     enemyManager.loadLevel2();
+    player1 = new Player("Red");
+	player1.init(evt, 350, 300);
+	player2 = new Player("Blue");
+	player2.init(evt, 450, 300);
     loadTopUI(evt);
-    loadScoreStars();
 }
 
 function gameplayLoadLevel3(evt){
-	player1 = new Player("Red");
-	player1.init(evt, 380, 30);
-	player2 = new Player("Blue");
-	player2.init(evt, 380, 530);
-
     stars = [];
     
     var star = new StarSprite(STAR_SPRITES);
@@ -193,10 +186,14 @@ function gameplayLoadLevel3(evt){
 	blueGoal.init(370, 30);
 	blueGoal.play("blue");
     
+    loadScoreStars();
     makeLevel3Walls();
     enemyManager.loadLevel3();
+    player1 = new Player("Red");
+	player1.init(evt, 380, 30);
+	player2 = new Player("Blue");
+	player2.init(evt, 380, 530);
     loadTopUI(evt);
-    loadScoreStars();
 }
 function loadTopUI(evt){
     var muteButton = getButton(MUTE_BUTTON);
