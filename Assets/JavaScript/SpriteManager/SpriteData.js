@@ -35,6 +35,7 @@ function loadSpriteStar() {
         frames: {width:25, height:25, count:6, regX: 0, regY:0, spacing:0, margin:0},
         animations: {
             starSpin: [0, 5, "starSpin", .4],
+            stationary: [0, 0, "stationary", .4],
         }
     });
 

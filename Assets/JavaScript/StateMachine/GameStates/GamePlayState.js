@@ -1,4 +1,4 @@
-var numLevels = 2;
+var numLevels = 3;
 
 function GamePlayState() {
 	State.call(this);
@@ -232,6 +232,7 @@ function checkStarCollisions(){
 function increaseScore(collectible){
     //Add removing the collectible from the collision array as well
     stage.removeChild(collectible);
+    showStar(numCollected);
     numCollected++;
     score += (500 * numCollected);
 }

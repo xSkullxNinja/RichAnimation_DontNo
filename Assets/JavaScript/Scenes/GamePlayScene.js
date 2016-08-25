@@ -13,15 +13,17 @@ var cancelPlayer1Horizontal = false;
 var cancelPlayer2Vertical = false;
 var cancelPlayer2Horizontal = false;
 var stars = [];
+var scoreStars = [];
+var starCount = 0;
 
 function enterGamePlayScene(evt) {
     gameplayLoadBasics(evt);
     collisionChecker.clearColliders();
     if(level == 1){
         score = 0;
-        // gameplayLoadLevel1(evt);
-        gameplayLoadLevel2(evt);
-        // gameplayLoadLevel3(evt);
+        gameplayLoadLevel1(evt);
+//        gameplayLoadLevel2(evt);
+//        gameplayLoadLevel3(evt);
     }
     else if(level == 2){
         gameplayLoadLevel2(evt);
@@ -38,6 +40,37 @@ function gameplayLoadBasics(evt){
     pauseText.x = 300;
     pauseText.y = 282;
 }
+
+function showStar(numCollected){
+    var star = new StarSprite(STAR_SPRITES);
+    star.init(80 + numCollected * 40, 40);
+    star.play("stationary");
+    star.sprite.visible = true;
+    scoreStars.push(star.sprite);
+    console.log("GAH!");
+}
+
+function loadScoreStars(){
+    starCount = 0;
+    var star = new StarSprite(STAR_SPRITES);
+    star.init(80, 40);
+    star.play("stationary");
+    star.sprite.visible = false;
+    scoreStars.push(star.sprite);
+
+    star = new StarSprite(STAR_SPRITES);
+    star.init(120, 40);
+    star.play("stationary");
+    star.sprite.visible = false;
+    scoreStars.push(star.sprite);
+    
+    star = new StarSprite(STAR_SPRITES);
+    star.init(160, 40);
+    star.play("stationary");
+    star.sprite.visible = false;
+    scoreStars.push(star.sprite);
+}
+
 function gameplayLoadLevel1(evt){
 	player1 = new Player("Red");
 	player1.init(evt, 30, 20);
@@ -77,11 +110,8 @@ function gameplayLoadLevel1(evt){
     
     makeLevel1Walls();
     enemyManager.loadLevel1();
-    player1 = new Player("Red");
-	player1.init(evt, 30, 20);
-	player2 = new Player("Blue");
-	player2.init(evt, 735, 530);
     loadTopUI(evt);
+    loadScoreStars();
 }
 function gameplayLoadLevel2(evt){
 	player1 = new Player("Red");
@@ -90,7 +120,7 @@ function gameplayLoadLevel2(evt){
 	player2.init(evt, 450, 300);
 
     stars = [];
-
+    
     var star = new StarSprite(STAR_SPRITES);
     star.init(165.0, 210.0);
     star.play("starSpin");
@@ -123,47 +153,50 @@ function gameplayLoadLevel2(evt){
     makeLevel2Walls();
     enemyManager.loadLevel2();
     loadTopUI(evt);
+    loadScoreStars();
 }
+
 function gameplayLoadLevel3(evt){
 	player1 = new Player("Red");
-	player1.init(evt, 30, 20);
+	player1.init(evt, 380, 30);
 	player2 = new Player("Blue");
-	player2.init(evt, 735, 530);
+	player2.init(evt, 380, 530);
 
     stars = [];
-
+    
     var star = new StarSprite(STAR_SPRITES);
-    star.init(165.0, 210.0);
+    star.init(25.0, 30.0);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
 
     star = new StarSprite(STAR_SPRITES);
-    star.init(600.0, 210.0);
+    star.init(380.0, 285.0);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
 
     star = new StarSprite(STAR_SPRITES);
-    star.init(380.0, 520.0);
+    star.init(730.0, 520.0);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
 	
 	redGoal = new GoalSprite(GOAL_SPRITES);
-	redGoal.init(725, 530);
+	redGoal.init(370, 520);
 	redGoal.play("red");
 	
 	blueGoal = new GoalSprite(GOAL_SPRITES);
-	blueGoal.init(20, 20);
+	blueGoal.init(370, 30);
 	blueGoal.play("blue");
     
     makeLevel3Walls();
     enemyManager.loadLevel3();
     loadTopUI(evt);
+    loadScoreStars();
 }
 function loadTopUI(evt){
     var muteButton = getButton(MUTE_BUTTON);
@@ -251,6 +284,7 @@ function makeLevel2Walls(){
     //Mid wall
     addWall(390, 80, 2, 21);
 }
+
 function makeLevel3Walls(){
     //Outside walls
     addWall(0, 0, 1, 30);    
@@ -258,29 +292,17 @@ function makeLevel3Walls(){
     addWall(0, 0, 40, 1);
     addWall(0, 580, 40, 1);
     
-    //boundary walls
-    addWall(100, 080, 15, 1);
-    addWall(420, 080, 14, 1);
+    //horizontal long walls
+    addWall(085, 090, 30, 01);
+    addWall(085, 185, 35, 01);
+    addWall(020, 385, 35, 01);
+    addWall(085, 480, 30, 01);
     
-    addWall(100, 480, 15, 1);
-    addWall(420, 480, 14, 1);
+    //horizontal mid short walls
+    addWall(180, 280, 09, 02);
+    addWall(440, 280, 09, 02);
     
-    addWall(100, 160, 1, 8);
-    addWall(680, 160, 1, 8);
-    
-    addWall(100, 380, 1, 5);
-    addWall(680, 380, 1, 5);
-    
-    //Inner walls
-    addWall(120, 300, 8, 1);
-    addWall(520, 300, 8, 1);
-    
-    addWall(260, 160, 1, 7);
-    addWall(520, 160, 1, 7);
-    
-    addWall(260, 320, 1, 5);
-    addWall(520, 320, 1, 5);
-    
-    //Mid wall
-    addWall(390, 80, 2, 21);
+    //verticle walls
+    addWall(085, 200, 01, 05);
+    addWall(700, 290, 01, 05);
 }
