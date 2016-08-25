@@ -77,6 +77,10 @@ function gameplayLoadLevel1(evt){
     
     makeLevel1Walls();
     enemyManager.loadLevel1();
+    player1 = new Player("Red");
+	player1.init(evt, 30, 20);
+	player2 = new Player("Blue");
+	player2.init(evt, 735, 530);
     loadTopUI(evt);
 }
 function gameplayLoadLevel2(evt){

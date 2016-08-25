@@ -1,3 +1,5 @@
+var jamie = false;
+
 function EnemyManager(){
     this.enemyArray = [];
 }
@@ -148,22 +150,24 @@ function loadLevel3(){
 
 //TODO: move this logic to the player instead of the manager
 function update(){
-    for(i = 0; i < this.enemyArray.length; i++){
-        var enemy = this.enemyArray[i];
-        if(enemy.color == "Red"){
-            if(((movingLeftPlayer1 || movingRightPlayer1) && !cancelPlayer1Horizontal) || ((movingUpPlayer1 || movingDownPlayer1) && !cancelPlayer1Vertical)){
-                enemy.Update();
+    if(!jamie){
+        for(i = 0; i < this.enemyArray.length; i++){
+            var enemy = this.enemyArray[i];
+            if(enemy.color == "Red"){
+                if(((movingLeftPlayer1 || movingRightPlayer1) && !cancelPlayer1Horizontal) || ((movingUpPlayer1 || movingDownPlayer1) && !cancelPlayer1Vertical)){
+                    enemy.Update();
+                }
             }
+            else if(enemy.color == "Blue"){
+                if(((movingLeftPlayer2 || movingRightPlayer2) && !cancelPlayer2Horizontal) || ((movingUpPlayer2 || movingDownPlayer2) && !cancelPlayer2Vertical)){
+                    enemy.Update();
+                }
+            }
+            else if(enemy.color == "Purple"){
+                if(((movingLeftPlayer1 || movingRightPlayer1) && !cancelPlayer1Horizontal) || ((movingUpPlayer1 || movingDownPlayer1) && !cancelPlayer1Vertical) || ((movingLeftPlayer2 || movingRightPlayer2) && !cancelPlayer2Horizontal) || ((movingUpPlayer2 || movingDownPlayer2) && !cancelPlayer2Vertical)){
+                    enemy.Update();
+                }
+            }        
         }
-        else if(enemy.color == "Blue"){
-            if(((movingLeftPlayer2 || movingRightPlayer2) && !cancelPlayer2Horizontal) || ((movingUpPlayer2 || movingDownPlayer2) && !cancelPlayer2Vertical)){
-                enemy.Update();
-            }
-        }
-        else if(enemy.color == "Purple"){
-            if(((movingLeftPlayer1 || movingRightPlayer1) && !cancelPlayer1Horizontal) || ((movingUpPlayer1 || movingDownPlayer1) && !cancelPlayer1Vertical) || ((movingLeftPlayer2 || movingRightPlayer2) && !cancelPlayer2Horizontal) || ((movingUpPlayer2 || movingDownPlayer2) && !cancelPlayer2Vertical)){
-                enemy.Update();
-            }
-        }        
     }
 }
