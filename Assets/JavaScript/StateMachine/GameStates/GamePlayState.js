@@ -1,4 +1,8 @@
 var numLevels = 3;
+var easterEgg = false;
+var frame = 0;
+var player1XGreater;
+var player1YGreater;
 
 function GamePlayState() {
 	State.call(this);
@@ -12,7 +16,8 @@ GamePlayState.prototype.exit = exitGamePlayState;
 
 var player1, player2;
 function enterGamePlayState(evt) {
-    jamie = false;
+    frame = 0;
+    easterEgg = false;
     enterGamePlayScene(evt);
 	resetGameTimer();
     addPlayerAndKeys(evt);
@@ -28,6 +33,7 @@ function addPlayerAndKeys(evt){
 	assignKeyPressFunction(keyCodes.KEYCODE_RIGHT, movePlayer2Right);
 	assignKeyPressFunction(keyCodes.KEYCODE_UP, movePlayer2Up);
     assignKeyDownFunction(keyCodes.LETTER_J, toggleJamie);
+    assignKeyDownFunction(keyCodes.LETTER_E, startEasterEgg);
     assignKeyUpFunction(keyCodes.ESCAPE, pause);
     
     assignKeyUpFunction(keyCodes.LETTER_A, stopPlayer1Left);
@@ -50,6 +56,9 @@ function runGamePlayState(evt) {
         enemyManager.update();
         resetCancels();
         scoreText.change(score);
+        if(easterEgg){
+            runEasterEgg();
+        }
         if(collisionChecker.isCollidingWithEnemy(player1.shape, 0.5)){
             loseGame(evt);
         }
@@ -66,6 +75,91 @@ function runGamePlayState(evt) {
                 WonFinalLevel(evt);
             }
         }
+    }
+}
+
+function startEasterEgg(){
+    if(!easterEgg && ndgmr.checkPixelCollision(player1.shape, player2.shape, 0)){
+        easterEgg = true;
+        player1.shape.gotoAndPlay("walk");
+        player2.shape.gotoAndPlay("walk");
+        player1XGreater = player1.shape.x > player2.shape.x;
+        player1YGreater = player1.shape.y > player2.shape.y;
+        frame = 0;
+    }
+}
+
+function runEasterEgg(){
+    if(frame < 5){
+        if(player1XGreater){
+            player1.shape.x -= 4;
+            player2.shape.x += 4;
+        }
+        else{
+            player1.shape.x += 4;
+            player2.shape.x -= 4;
+        }
+        frame++;
+    }
+    else if(frame < 12){
+        if(player1XGreater){
+            player1.shape.x += 4;
+            player2.shape.x -= 4;
+        }
+        else{
+            player1.shape.x -= 4;
+            player2.shape.x += 4;
+        }
+        frame++;
+    }
+    else if(frame < 14){
+        if(player1XGreater){
+            player1.shape.x -= 4;
+            player2.shape.x += 4;
+        }
+        else{
+            player1.shape.x += 4;
+            player2.shape.x -= 4;
+        }
+        frame++;
+    }
+    else if(frame < 19){
+        if(player1YGreater){
+            player1.shape.y -= 4;
+            player2.shape.y += 4;
+        }
+        else{
+            player1.shape.y += 4;
+            player2.shape.y -= 4;
+        }
+        frame++;
+    }
+    else if(frame < 26){
+        if(player1YGreater){
+            player1.shape.y += 4;
+            player2.shape.y -= 4;
+        }
+        else{
+            player1.shape.y -= 4;
+            player2.shape.y += 4;
+        }
+        frame++;
+    }
+    else if(frame < 28){
+        if(player1YGreater){
+            player1.shape.y -= 4;
+            player2.shape.y += 4;
+        }
+        else{
+            player1.shape.y += 4;
+            player2.shape.y -= 4;
+        }
+        frame++;
+    }
+    else{
+        easterEgg = false;
+        player1.shape.gotoAndPlay("stand");
+        player2.shape.gotoAndPlay("stand");
     }
 }
 function loseGame(evt){
@@ -128,36 +222,52 @@ function exitGamePlayState(evt) {
 	clearAllKeyCodes();
 }
 function movePlayer1Right() {
-    movingRightPlayer1 = true;
-	player1.moveRight();
+    if(!easterEgg){
+        movingRightPlayer1 = true;
+	    player1.moveRight();
+    }
 }
 function movePlayer1Left() {
-    movingLeftPlayer1 = true;
-	player1.moveLeft();
+    if(!easterEgg){
+        movingLeftPlayer1 = true;
+	    player1.moveLeft();
+    }
 }
 function movePlayer1Down() {
-    movingDownPlayer1 = true;
-	player1.moveDown();
+    if(!easterEgg){
+        movingDownPlayer1 = true;
+	    player1.moveDown();
+    }
 }
 function movePlayer1Up() {
-    movingUpPlayer1 = true;
-	player1.moveUp();
+    if(!easterEgg){
+        movingUpPlayer1 = true;
+	    player1.moveUp();
+    }
 }
 function movePlayer2Right() {
-    movingRightPlayer2 = true;
-	player2.moveRight();
+    if(!easterEgg){
+        movingRightPlayer2 = true;
+	    player2.moveRight();
+    }
 }
 function movePlayer2Left() {
-    movingLeftPlayer2 = true
-	player2.moveLeft();
+    if(!easterEgg){
+        movingLeftPlayer2 = true
+	    player2.moveLeft();
+    }
 }
 function movePlayer2Down() {
-    movingDownPlayer2 = true;
-	player2.moveDown();
+    if(!easterEgg){
+        movingDownPlayer2 = true;
+	    player2.moveDown();
+    }
 }
 function movePlayer2Up() {
-    movingUpPlayer2 = true;
-	player2.moveUp();
+    if(!easterEgg){
+        movingUpPlayer2 = true;
+	    player2.moveUp();
+    }
 }
 function stopPlayer1Right() {
 	movingRightPlayer1 = false;

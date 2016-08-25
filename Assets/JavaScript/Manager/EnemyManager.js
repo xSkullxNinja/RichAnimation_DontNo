@@ -57,53 +57,53 @@ function loadLevel1(){
 
 function loadLevel2(){
     //Red Enemies
-    var locationX = [450];
-    var locationY = [100];
-    var redEnemy1 = new enemy("Red", 750, 100, locationX, locationY);
+    var locationX = [445];
+    var locationY = [140];
+    var redEnemy1 = new enemy("Red", 730, 140, locationX, locationY);
     redEnemy1.Init();
     this.enemyArray.push(redEnemy1);
     collisionChecker.addEnemyCollider(redEnemy1.img.sprite);
     
     locationX = [45];
-    locationY = [100];
-    var redEnemy2 = new enemy("Red", 350, 100, locationX, locationY);
+    locationY = [140];
+    var redEnemy2 = new enemy("Red", 330, 140, locationX, locationY);
     redEnemy2.Init();
     this.enemyArray.push(redEnemy2);
     collisionChecker.addEnemyCollider(redEnemy2.img.sprite);
 
-    locationX = [740, 740, 25];
-    locationY = [540, 25, 25];
-    var redEnemy2 = new enemy("Red", 25, 540, locationX, locationY);
+    locationX = [730, 45, 45];
+    locationY = [45, 45, 530];
+    var redEnemy2 = new enemy("Red", 730, 530, locationX, locationY);
     redEnemy2.Init();
     this.enemyArray.push(redEnemy2);
     collisionChecker.addEnemyCollider(redEnemy2.img.sprite);
     
     //Blue Enemies
-    locationX = [750];
-    locationY = [100];
-    var bluEnemy1 = new enemy("Blue", 450, 100, locationX, locationY);
+    locationX = [730];
+    locationY = [140];
+    var bluEnemy1 = new enemy("Blue", 445, 140, locationX, locationY);
     bluEnemy1.Init();
     this.enemyArray.push(bluEnemy1);
     collisionChecker.addEnemyCollider(bluEnemy1.img.sprite);
     
-    locationX = [350];
-    locationY = [100];
-    var bluEnemy2 = new enemy("Blue", 45, 100, locationX, locationY);
+    locationX = [330];
+    locationY = [140];
+    var bluEnemy2 = new enemy("Blue", 45, 140, locationX, locationY);
     bluEnemy2.Init();
     this.enemyArray.push(bluEnemy2);
     collisionChecker.addEnemyCollider(bluEnemy2.img.sprite);
 
-    locationX = [25, 25, 740];
-    locationY = [540, 25, 25];
-    var bluEnemy2 = new enemy("Blue", 740, 540, locationX, locationY);
+    locationX = [45, 730, 730];
+    locationY = [45, 45, 530];
+    var bluEnemy2 = new enemy("Blue", 45, 530, locationX, locationY);
     bluEnemy2.Init();
     this.enemyArray.push(bluEnemy2);
     collisionChecker.addEnemyCollider(bluEnemy2.img.sprite);
     
     //Purple Enemies
-    locationX = [50, 387.5, 725];
-    locationY = [540, 540, 540];
-    var purpEnemy2 = new enemy("Purple", 387.5, 540, locationX, locationY);
+    locationX = [45, 387.5, 730];
+    locationY = [530, 530, 530];
+    var purpEnemy2 = new enemy("Purple", 387.5, 530, locationX, locationY);
     purpEnemy2.Init();
     this.enemyArray.push(purpEnemy2);
     collisionChecker.addEnemyCollider(purpEnemy2.img.sprite);
