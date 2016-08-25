@@ -59,6 +59,14 @@ function gameplayLoadLevel1(evt){
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
+	
+	redGoal = new GoalSprite(GOAL_SPRITES);
+	redGoal.init(725, 530);
+	redGoal.play("red");
+	
+	blueGoal = new GoalSprite(GOAL_SPRITES);
+	blueGoal.init(20, 20);
+	blueGoal.play("blue");
     
     makeLevel1Walls();
     enemyManager.loadLevel1();
