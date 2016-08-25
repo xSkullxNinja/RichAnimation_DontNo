@@ -98,7 +98,7 @@ function WonFinalLevel(evt){
     level = 1;
     stateManager.change(evt, new WinState());
 }
-function level1Finished(){
+function levelFinished(){
     return collidingGoals();
 }
 function collidingGoals() {
