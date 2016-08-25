@@ -12,20 +12,13 @@ GamePlayState.prototype.exit = exitGamePlayState;
 
 var player1, player2;
 function enterGamePlayState(evt) {
+    jamie = false;
     enterGamePlayScene(evt);
 	resetGameTimer();
     addPlayerAndKeys(evt);
 }
 
 function addPlayerAndKeys(evt){
-	player1 = new Player("Red");
-	player1.init(evt, 30, 20);
-	player2 = new Player("Blue");
-	player2.init(evt, 735, 530);
-	player1.init(evt, 20, 20);
-	player2 = new Player("Blue");
-	player2.init(evt, 730, 530);
-	
 	assignKeyPressFunction(keyCodes.LETTER_A, movePlayer1Left);
 	assignKeyPressFunction(keyCodes.LETTER_S, movePlayer1Down);
 	assignKeyPressFunction(keyCodes.LETTER_D, movePlayer1Right);
@@ -34,6 +27,7 @@ function addPlayerAndKeys(evt){
 	assignKeyPressFunction(keyCodes.KEYCODE_DOWN, movePlayer2Down);
 	assignKeyPressFunction(keyCodes.KEYCODE_RIGHT, movePlayer2Right);
 	assignKeyPressFunction(keyCodes.KEYCODE_UP, movePlayer2Up);
+    assignKeyDownFunction(keyCodes.LETTER_J, toggleJamie);
     assignKeyUpFunction(keyCodes.ESCAPE, pause);
     
     assignKeyUpFunction(keyCodes.LETTER_A, stopPlayer1Left);
@@ -207,6 +201,9 @@ function stopEnemyMovement(){
     stopPlayer1Down();
     stopPlayer1Left();
     stopPlayer1Right();
+}
+function toggleJamie(){
+    jamie = !jamie;
 }
 
 function resetCancels(){
