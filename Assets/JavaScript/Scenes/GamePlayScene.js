@@ -97,11 +97,11 @@ function gameplayLoadLevel1(evt){
 	
 	redGoal = new GoalSprite(GOAL_SPRITES);
 	redGoal.init(725, 530);
-	redGoal.play("red");
+	redGoal.play("red", false);
 	
 	blueGoal = new GoalSprite(GOAL_SPRITES);
 	blueGoal.init(20, 20);
-	blueGoal.play("blue");
+	blueGoal.play("blue", false);
     
     loadScoreStars();
 
@@ -140,11 +140,11 @@ function gameplayLoadLevel2(evt){
 	
 	redGoal = new GoalSprite(GOAL_SPRITES);
 	redGoal.init(432.5, 275);
-	redGoal.play("red");
+	redGoal.play("red", false);
 	
 	blueGoal = new GoalSprite(GOAL_SPRITES);
 	blueGoal.init(317.5, 275);
-	blueGoal.play("blue");
+	blueGoal.play("blue", false);
     
     loadScoreStars();
 
@@ -184,11 +184,11 @@ function gameplayLoadLevel3(evt){
 	
 	redGoal = new GoalSprite(GOAL_SPRITES);
 	redGoal.init(370, 520);
-	redGoal.play("red");
+	redGoal.play("red", false);
 	
 	blueGoal = new GoalSprite(GOAL_SPRITES);
 	blueGoal.init(370, 30);
-	blueGoal.play("blue");
+	blueGoal.play("blue", false);
     
     loadScoreStars();
 

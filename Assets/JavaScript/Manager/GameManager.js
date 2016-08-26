@@ -13,8 +13,11 @@ function initializeGame(evt) {
 	newMusic.init(0.1);
 	newMusic.play();
 	deathSound = new GameSound("deathSound");
+    deathSound.init(0.1);
 	powerupSound = new GameSound("powerupSound");
+    powerupSound.init(0.1)
 	goalSound = new GameSound("reachGoalSound");
+    goalSound.init(0.1);
 
 	stateManager = new StateManager();
 	stateManager.init(evt);

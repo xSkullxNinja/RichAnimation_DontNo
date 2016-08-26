@@ -18,8 +18,8 @@ function moveGoalSprite(xPos, yPos) {
     this.sprite.x = xPos;
     this.sprite.y = yPos;
 }
-function playGoalSprite(position) {
-	if (position == "reached" && this.sprite.curentAnimation != "reached") {
+function playGoalSprite(position, playSound) {
+	if (position == "reached" && this.sprite.curentAnimation != "reached" && playSound) {
 		goalSound.play();
 	}
 	this.sprite.gotoAndPlay(position);

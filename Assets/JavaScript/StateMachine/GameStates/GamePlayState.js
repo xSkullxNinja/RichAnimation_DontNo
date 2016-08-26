@@ -4,6 +4,7 @@ var frame = 0;
 var player1XGreater;
 var player1YGreater;
 var deathSound, powerupSound, goalSound; 
+var redCollided, blueCollided;
 
 function GamePlayState() {
 	State.call(this);
@@ -19,6 +20,8 @@ var player1, player2;
 function enterGamePlayState(evt) {
     frame = 0;
     easterEgg = false;
+    redCollided = false;
+    blueCollided = false;
     enterGamePlayScene(evt);
 	resetGameTimer();
     addPlayerAndKeys(evt);
@@ -197,16 +200,20 @@ function collidingGoals() {
 	var redColliding = redcollision != null;
 	var blueColliding = blueCollision != null;
 	if (redColliding) {
-		redGoal.play("reached");
+		redGoal.play("reached", !redCollided);
+        redCollided = true;
 	}
 	else {
-		redGoal.play("red");	
+		redGoal.play("red", false);
+        redCollided = false;
 	}
 	if (blueColliding) {
-		blueGoal.play("reached");
+		blueGoal.play("reached", !blueCollided);
+        blueCollided = true;
 	}
 	else {
 		blueGoal.play("blue");
+        blueCollided = false;
 	}
 	return blueColliding && redColliding
 }
