@@ -51,8 +51,7 @@ function addPlayerAndKeys(evt){
 	xPos = yPos = 400;
 }
 
-function runGamePlayState(evt) {  
-
+function runGamePlayState(evt) {
 	runGamePlayScene(evt);
 	collisionChecker.pushBackIfColliding(player1.shape, 1);
 	collisionChecker.pushBackIfColliding(player2.shape, 2);
@@ -63,6 +62,8 @@ function runGamePlayState(evt) {
     if(easterEgg){
     	runEasterEgg();
     }
+    isPlayer1Stopped();
+    isPlayer2Stopped();
     if(collisionChecker.isCollidingWithEnemy(player1.shape, 0.5)){
 		console.log(deathSound);
         deathSound.play();
@@ -278,37 +279,39 @@ function movePlayer2Up() {
 	    player2.moveUp();
     }
 }
+function isPlayer1Stopped(){
+    if(!movingLeftPlayer1 && !movingRightPlayer1 && !movingUpPlayer1 && !movingDownPlayer1 && !easterEgg){
+        player1.stopPlayer();
+    }
+}
+function isPlayer2Stopped(){
+    if(!movingLeftPlayer2 && !movingRightPlayer2 && !movingUpPlayer2 && !movingDownPlayer2 && !easterEgg){
+        player2.stopPlayer();
+    }
+}
 function stopPlayer1Right() {
 	movingRightPlayer1 = false;
-	player1.stopPlayer();
 }
 function stopPlayer1Left() {
 	movingLeftPlayer1 = false;
-	player1.stopPlayer();
 }
 function stopPlayer1Down() {
 	movingDownPlayer1 = false;
-	player1.stopPlayer();
 }
 function stopPlayer1Up() {
 	movingUpPlayer1 = false;
-	player1.stopPlayer();
 }
 function stopPlayer2Right() {
 	movingRightPlayer2 = false;
-	player2.stopPlayer();
 }
 function stopPlayer2Left() {
 	movingLeftPlayer2 = false;
-	player2.stopPlayer();
 }
 function stopPlayer2Down() {
 	movingDownPlayer2 = false;
-	player2.stopPlayer();
 }
 function stopPlayer2Up() {
 	movingUpPlayer2 = false;
-	player2.stopPlayer();
 }
 function stopEnemyMovement(){
     stopPlayer2Left();
