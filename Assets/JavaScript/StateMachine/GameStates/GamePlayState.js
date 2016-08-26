@@ -1,4 +1,5 @@
 var numLevels = 2;
+var deathSound, powerupSound, goalSound; 
 
 function GamePlayState() {
 	State.call(this);
@@ -42,7 +43,7 @@ function addPlayerAndKeys(evt){
 }
 
 function runGamePlayState(evt) {  
-    if(!paused){
+    if(!paused){		
 		runGamePlayScene(evt);
 		collisionChecker.pushBackIfColliding(player1.shape, 1);
 		collisionChecker.pushBackIfColliding(player2.shape, 2);
@@ -51,9 +52,13 @@ function runGamePlayState(evt) {
         resetCancels();
         scoreText.change(score);
         if(collisionChecker.isCollidingWithEnemy(player1.shape, 0.5)){
-            loseGame(evt);
+			console.log(deathSound);
+            deathSound.play();
+			loseGame(evt);
         }
         if(collisionChecker.isCollidingWithEnemy(player2.shape, 0.5)){
+			console.log(deathSound);
+			deathSound.play();
             loseGame(evt);
         }
         if(level < numLevels){
@@ -221,6 +226,7 @@ function checkStarCollisions(){
         var blueCollision = ndgmr.checkPixelCollision(player2.shape, stars[i].sprite, 0);
         if(redCollision || blueCollision){
             toRemove.push(i);
+			powerupSound.play();
             increaseScore(stars[i].sprite);
         }
     }

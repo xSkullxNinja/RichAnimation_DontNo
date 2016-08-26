@@ -191,6 +191,19 @@ function getManifest() {
 			src: "Sounds/backgroundMemories.mp3",
 			id: "backgroundMusicMemories"
 		},
+		//Sound Effects
+		{
+			src: "Sounds/die.mp3",
+			id: "deathSound"
+		},
+		{
+			src: "Sounds/powerup.mp3",
+			id: "powerupSound"
+		},
+		{
+			src: "Sounds/reachgoal.mp3",
+			id: "reachGoalSound"
+		},
 		// Sprite Sheets
 		{ 
 			src: "Images/SpriteSheets/buttons.png",
