@@ -22,8 +22,6 @@ function enterGamePlayScene(evt) {
     if(level == 1){
         score = 0;
         gameplayLoadLevel1(evt);
-//        gameplayLoadLevel2(evt);
-//        gameplayLoadLevel3(evt);
     }
     else if(level == 2){
         gameplayLoadLevel2(evt);
@@ -162,40 +160,40 @@ function gameplayLoadLevel3(evt){
     stars = [];
     
     var star = new StarSprite(STAR_SPRITES);
-    star.init(25.0, 30.0);
+    star.init(32.5, 32.5);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
 
     star = new StarSprite(STAR_SPRITES);
-    star.init(380.0, 285.0);
+    star.init(375, 275);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
 
     star = new StarSprite(STAR_SPRITES);
-    star.init(730.0, 520.0);
+    star.init(717.5, 517.5);
     star.play("starSpin");
 	star.sprite.scaleX = 2;
 	star.sprite.scaleY = 2;
     stars.push(star);
 	
 	redGoal = new GoalSprite(GOAL_SPRITES);
-	redGoal.init(370, 520);
+	redGoal.init(375, 517.5);
 	redGoal.play("red", false);
 	
 	blueGoal = new GoalSprite(GOAL_SPRITES);
-	blueGoal.init(370, 30);
+	blueGoal.init(375, 32.5);
 	blueGoal.play("blue", false);
     
     loadScoreStars();
 
     player1 = new Player("Red");
-	player1.init(evt, 380, 30);
+	player1.init(evt, 385, 32.5);
 	player2 = new Player("Blue");
-	player2.init(evt, 380, 530);
+	player2.init(evt, 385, 517.5);
 
     makeLevel3Walls();
     enemyManager.loadLevel3();
@@ -296,16 +294,16 @@ function makeLevel3Walls(){
     addWall(0, 580, 40, 1);
     
     //horizontal long walls
-    addWall(085, 090, 30, 01);
-    addWall(085, 185, 35, 01);
-    addWall(020, 385, 35, 01);
-    addWall(085, 480, 30, 01);
+    addWall(95, 95, 30.5, 1);
+    addWall(95, 185, 34.25, 1);
+    addWall(20, 395, 34.25, 1);
+    addWall(95, 485, 30.5, 1);
     
     //horizontal mid short walls
-    addWall(180, 280, 09, 02);
-    addWall(440, 280, 09, 02);
+    addWall(180, 280, 9, 2);
+    addWall(440, 280, 9, 2);
     
     //verticle walls
-    addWall(085, 200, 01, 05);
-    addWall(700, 290, 01, 05);
+    addWall(95, 205, 1, 5.75);
+    addWall(685, 280, 1, 5.75);
 }

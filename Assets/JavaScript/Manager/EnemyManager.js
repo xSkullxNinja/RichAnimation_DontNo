@@ -111,17 +111,17 @@ function loadLevel2(){
 
 function loadLevel3(){
     //Red Enemies
-    var locationX = [400, 400, 640];
-    var locationY = [330, 230, 230];
-    var redEnemy1 = new enemy("Red", 640, 330, locationX, locationY);
+    var locationX = [387.5, 387.5, 635];
+    var locationY = [345, 230, 230];
+    var redEnemy1 = new enemy("Red", 635, 345, locationX, locationY);
     redEnemy1.Init();
     this.enemyArray.push(redEnemy1);
     collisionChecker.addEnemyCollider(redEnemy1.img.sprite);
         
     //Blue Enemies
-    locationX = [370, 370, 120];
-    locationY = [230, 330, 330];
-    var bluEnemy1 = new enemy("Blue", 120, 230, locationX, locationY);
+    locationX = [387.5, 387.5, 140];
+    locationY = [230, 345, 345];
+    var bluEnemy1 = new enemy("Blue", 140, 230, locationX, locationY);
     bluEnemy1.Init();
     this.enemyArray.push(bluEnemy1);
     collisionChecker.addEnemyCollider(bluEnemy1.img.sprite);
@@ -130,9 +130,9 @@ function loadLevel3(){
     //top enemy
     //y top is 40, y bottom is 140
     //x left is 40, x right is 730
-    locationX = [040, 040, 730, 730];
-    locationY = [140, 040, 040, 140];
-    var purpEnemy1 = new enemy("Purple", 100, 140, locationX, locationY);
+    locationX = [45, 45, 730, 730];
+    locationY = [140, 45, 45, 140];
+    var purpEnemy1 = new enemy("Purple", 140, 140, locationX, locationY);
     purpEnemy1.Init();
     this.enemyArray.push(purpEnemy1);
     collisionChecker.addEnemyCollider(purpEnemy1.img.sprite);
@@ -140,17 +140,17 @@ function loadLevel3(){
     //bottom enemy
     //y top is 430, y bottom is 525
     //x left is 40, x right is 730
-    locationX = [730, 730, 040, 040];
-    locationY = [430, 525, 525, 430];
-    var purpEnemy2 = new enemy("Purple", 600, 430, locationX, locationY);
+    locationX = [730, 730, 45, 45];
+    locationY = [435, 530, 530, 435];
+    var purpEnemy2 = new enemy("Purple", 610, 435, locationX, locationY);
     purpEnemy2.Init();
     this.enemyArray.push(purpEnemy2);
     collisionChecker.addEnemyCollider(purpEnemy2.img.sprite);
     
     //Mid enemy
-    locationX = [375, 045, 375, 385, 730, 385];
-    locationY = [335, 335, 335, 230, 230, 230];
-    var purpEnemy3 = new enemy("Purple", 380, 280, locationX, locationY);
+    locationX = [387.5, 45, 387.5, 387.5, 387.5, 730, 387.5];
+    locationY = [345, 345, 345, 287.5, 230, 230, 230];
+    var purpEnemy3 = new enemy("Purple", 387.5, 287.5, locationX, locationY);
     purpEnemy3.Init();
     this.enemyArray.push(purpEnemy3);
     collisionChecker.addEnemyCollider(purpEnemy3.img.sprite);
