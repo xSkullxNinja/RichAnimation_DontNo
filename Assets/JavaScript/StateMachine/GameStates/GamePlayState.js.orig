@@ -1,9 +1,13 @@
+<<<<<<< HEAD
+var numLevels = 2;
+var deathSound, powerupSound, goalSound; 
+=======
 var numLevels = 3;
 var easterEgg = false;
 var frame = 0;
 var player1XGreater;
 var player1YGreater;
-var deathSound, powerupSound, goalSound; 
+>>>>>>> 89b3480f27bb4e79cbbef7cf8b668f6d3514f6a7
 
 function GamePlayState() {
 	State.call(this);
@@ -49,34 +53,37 @@ function addPlayerAndKeys(evt){
 }
 
 function runGamePlayState(evt) {  
-
-	runGamePlayScene(evt);
-	collisionChecker.pushBackIfColliding(player1.shape, 1);
-	collisionChecker.pushBackIfColliding(player2.shape, 2);
-    checkStarCollisions();
-    enemyManager.update();
-    resetCancels();
-    scoreText.change(score);
-    if(easterEgg){
-    	runEasterEgg();
-    }
-    if(collisionChecker.isCollidingWithEnemy(player1.shape, 0.5)){
-		console.log(deathSound);
-        deathSound.play();
-		loseGame(evt);
-    }
-    if(collisionChecker.isCollidingWithEnemy(player2.shape, 0.5)){
-		console.log(deathSound);
-		deathSound.play();
-        loseGame(evt);
-    }
-    if(level < numLevels){
-    	if(levelFinished()){
-        	WonLevel(evt);
+    if(!paused){		
+		runGamePlayScene(evt);
+		collisionChecker.pushBackIfColliding(player1.shape, 1);
+		collisionChecker.pushBackIfColliding(player2.shape, 2);
+        checkStarCollisions();
+        enemyManager.update();
+        resetCancels();
+        scoreText.change(score);
+        if(easterEgg){
+            runEasterEgg();
         }
-    }
-    else if(levelFinished()) {
-      	WonFinalLevel(evt);
+        if(collisionChecker.isCollidingWithEnemy(player1.shape, 0.5)){
+			console.log(deathSound);
+            deathSound.play();
+			loseGame(evt);
+        }
+        if(collisionChecker.isCollidingWithEnemy(player2.shape, 0.5)){
+			console.log(deathSound);
+			deathSound.play();
+            loseGame(evt);
+        }
+        if(level < numLevels){
+            if(levelFinished()){
+                WonLevel(evt);
+            }
+        }
+        else{
+            if(levelFinished()){
+                WonFinalLevel(evt);
+            }
+        }
     }
 }
 
