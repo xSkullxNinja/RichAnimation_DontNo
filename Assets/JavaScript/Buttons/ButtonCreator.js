@@ -4,8 +4,9 @@ var MENU_BUTTON			= 2;
 var CONTINUE_BUTTON		= 3;
 var PLAY_AGAIN_BUTTON	= 4;
 var MUTE_BUTTON			= 5;
+var CREDIT_BUTTON       = 6;
 
-var NUM_BUTTONS = 6;
+var NUM_BUTTONS = 7;
 
 var buttonList = [];
 
@@ -20,6 +21,7 @@ function initializeScreenButtons() {
 	buttonList[CONTINUE_BUTTON] = new ContinueButton(buttonSprite.clone());
 	buttonList[PLAY_AGAIN_BUTTON] = new PlayAgainButton(buttonSprite.clone());
 	buttonList[MUTE_BUTTON] = new MuteButton(buttonSprite.clone());
+	buttonList[CREDIT_BUTTON] = new CreditButton(buttonSprite.clone());
 	
 	addButtonEvents();
 }
@@ -29,7 +31,8 @@ function addButtonEvents() {
 	addEveryButtonEvent(MENU_BUTTON);
 	addEveryButtonEvent(CONTINUE_BUTTON);
 	addEveryButtonEvent(PLAY_AGAIN_BUTTON);
-	addEveryButtonEvent(MUTE_BUTTON)
+	addEveryButtonEvent(MUTE_BUTTON);
+	addEveryButtonEvent(CREDIT_BUTTON);
 }
 function addEveryButtonEvent(buttonValue) {
 	addClick(buttonValue);

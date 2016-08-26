@@ -84,6 +84,9 @@ function getManifest() {
 			src: "JavaScript/Scenes/InstructionsScene.js"
 		},
 		{ 
+			src: "JavaScript/Scenes/CreditScene.js"
+		},
+		{ 
 			src: "JavaScript/Scenes/GamePlayScene.js"
 		},
 		{ 
@@ -113,6 +116,9 @@ function getManifest() {
 		},
 		{ 
 			src: "JavaScript/StateMachine/GameStates/InstructionsState.js"
+		},
+		{ 
+			src: "JavaScript/StateMachine/GameStates/CreditState.js"
 		},
 		{ 
 			src: "JavaScript/StateMachine/GameStates/LoadingLevelState.js"
@@ -169,6 +175,9 @@ function getManifest() {
 		},
 		{ 
 			src: "JavaScript/Buttons/ScreenButtons/InstructionButton.js"
+		},
+		{ 
+			src: "JavaScript/Buttons/ScreenButtons/CreditButton.js"
 		},
 		{ 
 			src: "JavaScript/Buttons/ScreenButtons/MenuButton.js"
@@ -258,6 +267,10 @@ function getManifest() {
 		{
 			src: "Images/Backgrounds/MainMenuBackground.jpg",
 			id: "MainMenuBackground"
+		},
+		{
+			src: "Images/Backgrounds/Credits.jpg",
+			id: "CreditBackground"
 		},
 		{
 			src: "Images/Backgrounds/InstructionBackground.png",
