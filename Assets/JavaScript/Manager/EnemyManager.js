@@ -71,8 +71,8 @@ function loadLevel2(){
     this.enemyArray.push(redEnemy2);
     collisionChecker.addEnemyCollider(redEnemy2.img.sprite);
 
-    locationX = [730, 45, 45];
-    locationY = [45, 45, 530];
+    locationX = [45, 45, 730];
+    locationY = [530, 45, 45];
     var redEnemy2 = new enemy("Red", 730, 530, locationX, locationY);
     redEnemy2.Init();
     this.enemyArray.push(redEnemy2);
@@ -93,8 +93,8 @@ function loadLevel2(){
     this.enemyArray.push(bluEnemy2);
     collisionChecker.addEnemyCollider(bluEnemy2.img.sprite);
 
-    locationX = [45, 730, 730];
-    locationY = [45, 45, 530];
+    locationX = [730, 730, 45];
+    locationY = [530, 45, 45];
     var bluEnemy2 = new enemy("Blue", 45, 530, locationX, locationY);
     bluEnemy2.Init();
     this.enemyArray.push(bluEnemy2);
