@@ -45,7 +45,6 @@ function showStar(numCollected){
     star.play("stationary");
     star.sprite.visible = true;
     scoreStars.push(star.sprite);
-    console.log("GAH!");
 }
 
 function loadScoreStars(){
